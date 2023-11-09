@@ -1,6 +1,6 @@
 {
   "name": "reacling",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "cli utility for generating react project structure",
   "scripts": {
     "reacling": "ts-node ./scripts/main.ts",
@@ -39,6 +39,5 @@
   "_moduleAliases": {
     "scripts": "scripts"
   },
-
   "bin": "./main/index.js"
 }
