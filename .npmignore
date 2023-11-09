@@ -14,4 +14,4 @@
 .parcelrc
 .prettierrc
 .eslintrc
-.tsconfig.json
+tsconfig.json
