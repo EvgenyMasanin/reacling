@@ -40,5 +40,10 @@
   "_moduleAliases": {
     "scripts": "scripts"
   },
-  "bin": "./main/index.js"
+  "bin": "./main/index.js",
+  "targets": {
+    "main": {
+      "context": "node"
+    }
+  }
 }
