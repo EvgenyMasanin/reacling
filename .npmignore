@@ -1,0 +1,17 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# production
+/src
+/scripts
+/.cache
+/.parcel-cache
+/.vscode
+
+.gitignore
+.parcelrc
+.prettierrc
+.eslintrc
+.tsconfig.json
