@@ -10,7 +10,7 @@ It is a simple cli utility that generates various parts of your React project su
 # Command example
 $ yarn reacli c 'component name'
 
-#Options:
+# Options:
  --help  Show available commands
 ```
 ## Commands
