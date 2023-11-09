@@ -1,6 +1,6 @@
 {
   "name": "reacling",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "cli utility for generating react project structure",
   "scripts": {
     "reacling": "ts-node ./scripts/main.ts",
