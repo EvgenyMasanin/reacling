@@ -3,11 +3,9 @@ import { toCamelCase } from 'scripts/utils'
 export const generateComponentContent = (name: string) => {
   const componentName = toCamelCase(name)
 
-  return `import { VFC } from 'react'
+  return `export interface ${componentName}Props {}
 
-export interface ${componentName}Props {}
-
-export const ${componentName}: VFC<${componentName}Props> = ({}) => {
+export const ${componentName} = ({}: ${componentName}Props) => {
   return <div>${componentName}</div>
 }
 
