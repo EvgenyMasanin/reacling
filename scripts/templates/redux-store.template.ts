@@ -1,4 +1,4 @@
-export const storeContent = `import { configureStore } from '@reduxjs/toolkit'
+export const REDUX_STORE = `import { configureStore } from '@reduxjs/toolkit'
 import { rootReducer } from './reducers/root-reducer'
 
 export const store = configureStore({

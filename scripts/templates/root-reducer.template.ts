@@ -1,4 +1,4 @@
-export const rootReducerContent = `import { combineReducers } from '@reduxjs/toolkit'
+export const ROOT_REDUCER = `import { combineReducers } from '@reduxjs/toolkit'
 
 export const rootReducer = combineReducers({})
 

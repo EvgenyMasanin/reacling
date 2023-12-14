@@ -1,5 +1,6 @@
 import { INDEX } from 'scripts/constants'
-import { createFile, generateComponentContent, generateIndexContent } from '..'
+import { createFile } from './create-file'
+import { generateComponentContent, generateIndexContent } from 'scripts/project-generators/common-structure/content-generators'
 
 export const createComponentFiles = (
   directory: string,

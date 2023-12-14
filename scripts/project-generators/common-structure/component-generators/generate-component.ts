@@ -1,13 +1,14 @@
-import {
-  createComponentFiles,
-  generateDirectoryPath,
-  isDirExist,
-  mkdirIfNotExist
-} from '..'
 import { mkdirSync } from 'fs'
-import { Folders } from 'scripts/constants'
+import { Folders, Status } from 'scripts/constants'
 import { type GenerateComponent } from 'scripts/types'
-import { logger } from '../loggers/logger'
+
+import { generateDirectoryPath } from '../content-generators'
+import {
+  mkdirIfNotExist,
+  createComponentFiles
+} from 'scripts/utils/file-system'
+import { logger } from 'scripts/utils/loggers'
+import { isDirExist } from 'scripts/utils/predicates'
 
 export const generateComponent: GenerateComponent = (componentName, path) => {
   mkdirIfNotExist(Folders.src, Folders.components)
@@ -15,7 +16,10 @@ export const generateComponent: GenerateComponent = (componentName, path) => {
   const directoryPath = generateDirectoryPath(Folders.components, componentName)
 
   if (isDirExist(path ?? directoryPath)) {
-    logger.addLog('error', `Component '${componentName}' is already exist!`)
+    logger.addLog(
+      Status.error,
+      `Component '${componentName}' is already exist!`
+    )
     return
   }
 
@@ -23,6 +27,6 @@ export const generateComponent: GenerateComponent = (componentName, path) => {
     mkdirSync(path ?? directoryPath)
     createComponentFiles(path ?? directoryPath, componentName)
   } catch (error) {
-    logger.addLog('error', error)
+    logger.addLog(Status.error, error)
   }
 }

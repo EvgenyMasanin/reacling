@@ -1,20 +1,20 @@
 import { readdirSync } from 'fs'
+import { Folders, INDEX, PAGE_FOLDER_PATH, Status } from 'scripts/constants'
+import { type GeneratePage } from 'scripts/types'
 import {
   appendToIndex,
   createFile,
-  generatePageContent,
-  isFileExist,
   mkdirIfNotExist
-} from '..'
-import { logger } from '../loggers/logger'
-import { Folders, PAGE_FOLDER_PATH, INDEX } from 'scripts/constants'
-import { type GeneratePage } from 'scripts/types'
+} from 'scripts/utils/file-system'
+import { logger } from 'scripts/utils/loggers'
+import { isFileExist } from 'scripts/utils/predicates'
+import { generatePageContent } from '../content-generators'
 
 export const generatePage: GeneratePage = (pageName) => {
   mkdirIfNotExist(Folders.src, Folders.pages)
 
   if (isFileExist(PAGE_FOLDER_PATH, `${pageName}.tsx`)) {
-    logger.addLog('error', `Page '${pageName}' is already exist!`)
+    logger.addLog(Status.error, `Page '${pageName}' is already exist!`)
     return
   }
 

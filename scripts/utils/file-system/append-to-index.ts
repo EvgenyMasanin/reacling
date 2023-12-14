@@ -1,6 +1,6 @@
 import { join } from 'path'
-import { INDEX } from 'scripts/constants'
-import { logger } from '../loggers/logger'
+import { INDEX, Status } from 'scripts/constants'
+import { logger } from '../loggers'
 
 import { appendFileSync } from 'fs'
 
@@ -10,10 +10,10 @@ export const appendToIndex = (path: string, fileName: string) => {
   try {
     appendFileSync(join(path, INDEX), content)
     logger.addLog(
-      'success',
+      Status.success,
       `File updated: ${join(path, INDEX).match(/src.*/)[0]}.`
     )
   } catch (error) {
-    logger.addLog('error', error)
+    logger.addLog(Status.error, error)
   }
 }

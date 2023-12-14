@@ -1,0 +1,6 @@
+export * from './react-component.template'
+export * from './feature-index.template'
+export * from './hook.template'
+export * from './page.template'
+export * from './root-reducer.template'
+export * from './redux-store.template'

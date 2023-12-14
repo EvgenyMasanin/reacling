@@ -1,27 +1,26 @@
+import { Status } from 'scripts/constants'
 import { errorLog } from './error-log'
 import { successLog } from './success-log'
 
-type LogType = 'success' | 'error'
-
-export const isSuccess = (type: LogType) => type === 'success'
+export const isSuccess = (status: Status) => status === Status.success
 
 class Logger {
   readonly #successLogs: string[] = []
   readonly #errorLogs: string[] = []
 
-  addLog(type: LogType, log: string) {
-    isSuccess(type) ? this.#successLogs.push(log) : this.#errorLogs.push(log)
+  addLog(status: Status, log: string) {
+    isSuccess(status) ? this.#successLogs.push(log) : this.#errorLogs.push(log)
   }
 
-  #getLogs(type: LogType) {
-    return isSuccess(type)
+  #getLogs(status: Status) {
+    return isSuccess(status)
       ? this.#successLogs.join('\n')
       : this.#errorLogs.join('\n')
   }
 
   writeLogs() {
-    if (this.#successLogs.length > 0) successLog(this.#getLogs('success'))
-    if (this.#errorLogs.length > 0) errorLog(this.#getLogs('error'))
+    if (this.#successLogs.length > 0) successLog(this.#getLogs(Status.success))
+    if (this.#errorLogs.length > 0) errorLog(this.#getLogs(Status.error))
   }
 }
 

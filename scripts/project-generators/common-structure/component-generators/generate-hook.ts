@@ -1,15 +1,16 @@
 import { join } from 'path'
+
+import { Folders, Status } from 'scripts/constants'
+
+import { type GenerateHook } from 'scripts/types'
 import {
-  generateHookContent,
-  isFileExist,
   appendToIndex,
   createFile,
   mkdirIfNotExist
-} from '..'
-import { Folders } from 'scripts/constants'
-
-import { type GenerateHook } from 'scripts/types'
-import { logger } from '../loggers/logger'
+} from 'scripts/utils/file-system'
+import { logger } from 'scripts/utils/loggers'
+import { isFileExist } from 'scripts/utils/predicates'
+import { generateHookContent } from '../content-generators'
 
 export const generateHook: GenerateHook = (hookName: string, path?: string) => {
   mkdirIfNotExist(Folders.src, Folders.hooks)
@@ -17,7 +18,7 @@ export const generateHook: GenerateHook = (hookName: string, path?: string) => {
   const directoryPath = join(Folders.src, Folders.hooks)
 
   if (isFileExist(directoryPath, `${hookName}.ts`)) {
-    logger.addLog('error', `Hook '${hookName}' is already exist!`)
+    logger.addLog(Status.error, `Hook '${hookName}' is already exist!`)
     return
   }
 

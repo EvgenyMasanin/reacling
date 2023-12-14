@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 
 import {
-  writeHelp,
   generateHook,
   generatePage,
   generateFeature,
   generateComponent,
   generateFeatureHook,
   generateFeatureComponent
-} from './utils/component-generators'
-import { isCorrectCommandsNumber, mkdirIfNotExist } from './utils'
-import { Folders } from './constants'
-import { logger } from './utils/loggers/logger'
+} from './project-generators/common-structure/component-generators'
+import { Folders, Status } from './constants'
+import { logger, writeHelp } from './utils/loggers'
 import { type Command } from './types'
+import { mkdirIfNotExist } from './utils/file-system'
+import { isCorrectCommandsNumber } from './utils/predicates'
 // import { generateStore } from './utils/redux-generators'
 
 start()
@@ -69,7 +69,7 @@ function execute(command: Command): void {
       return
     }
     default: {
-      logger.addLog('error', `Unknown command '${command}'`)
+      logger.addLog(Status.error, `Unknown command '${command}'`)
     }
   }
 }
