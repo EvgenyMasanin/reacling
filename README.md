@@ -69,7 +69,7 @@ For using reacling to generate fsd structure create reacling.json file in root d
 }
 ```
 
-#####You can provide your oun settings using this interface:
+##### You can provide your oun settings using this interface:
 
 ```typescript
 interface SliceStructure {
@@ -97,6 +97,6 @@ interface ReaclingConfig {
   }
 }
 ```
-#####For example:
+##### For example:
 The command `$ yarn reacling init` provide us next folders structure:
 ![alt text](./assets/structure.png 'Title')
