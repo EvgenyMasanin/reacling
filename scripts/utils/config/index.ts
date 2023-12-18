@@ -3,6 +3,7 @@ import type { Layer } from 'scripts/project-generators/fsd-structure/slice/types
 import type { ReaclingConfig, SliceStructure } from 'scripts/types'
 import { deepMerge } from '../deep-merge'
 import { REACLING_CONFIG } from 'scripts/constants'
+import { join } from 'path'
 
 class Config {
   readonly #config: ReaclingConfig = {
@@ -40,7 +41,7 @@ class Config {
       ) as ReaclingConfig
     } catch (error) {
       userConfig = JSON.parse(
-        readFileSync(REACLING_CONFIG, 'utf8')
+        readFileSync(join(__dirname, '../../..', REACLING_CONFIG), 'utf8')
       ) as ReaclingConfig
     }
 
