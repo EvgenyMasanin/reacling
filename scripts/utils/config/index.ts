@@ -39,7 +39,6 @@ class Config {
         readFileSync(`../${REACLING_CONFIG}`, 'utf8')
       ) as ReaclingConfig
     } catch (error) {
-      console.log('🚀 ~ constructor ~ error:', error)
       userConfig = JSON.parse(
         readFileSync(REACLING_CONFIG, 'utf8')
       ) as ReaclingConfig
@@ -49,10 +48,6 @@ class Config {
   }
 
   getMethodology() {
-    console.log(
-      '🚀 ~ getMethodology ~ this.#config.methodology:',
-      this.#config.methodology
-    )
     return this.#config.methodology
   }
 
