@@ -40,8 +40,12 @@ class Config {
         readFileSync(`../${REACLING_CONFIG}`, 'utf8')
       ) as ReaclingConfig
     } catch (error) {
+      console.log(
+        "🚀 ~ constructor ~ join(__dirname, '../../../', REACLING_CONFIG):",
+        join(__dirname, '../../../', REACLING_CONFIG)
+      )
       userConfig = JSON.parse(
-        readFileSync(join(__dirname, '../../..', REACLING_CONFIG), 'utf8')
+        readFileSync(join(__dirname, '../../../', REACLING_CONFIG), 'utf8')
       ) as ReaclingConfig
     }
 
