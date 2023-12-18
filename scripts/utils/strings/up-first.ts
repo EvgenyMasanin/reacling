@@ -1,2 +1,2 @@
-export const upFirst = (str: string) =>
+export const capitalizeFirst = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1)

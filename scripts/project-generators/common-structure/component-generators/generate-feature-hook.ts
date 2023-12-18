@@ -1,9 +1,10 @@
 import { join } from 'path'
 import { generateHook } from './generate-hook'
 import { type GenerateFeatureHook } from 'scripts/types'
-import { Folders, Status } from 'scripts/constants'
+import { Folders } from 'scripts/constants'
 import { isFileExist } from 'scripts/utils/predicates'
 import { logger } from 'scripts/utils/loggers'
+import { checkFeatureExistence } from './check-feature-existence'
 
 export const generateFeatureHook: GenerateFeatureHook = (
   featureName,
@@ -16,8 +17,10 @@ export const generateFeatureHook: GenerateFeatureHook = (
     Folders.hooks
   )
 
+  checkFeatureExistence(featureName, featureHooksDirPath)
+
   if (isFileExist(featureHooksDirPath, `${hookName}.ts`)) {
-    logger.addLog(Status.error, `Hook '${hookName}' is already exist!`)
+    logger.addAlreadyExistLog(hookName, 'hook')
     return
   }
 

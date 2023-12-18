@@ -1,4 +1,3 @@
-import { Status } from 'scripts/constants'
 import { logger } from './logger'
 
 const commandMap = {
@@ -7,8 +6,7 @@ const commandMap = {
 }
 
 export function writeFeatureError(command: 'fc' | 'fh') {
-  logger.addLog(
-    Status.error,
+  logger.addErrorLog(
     `Please write 'feature name' then write '${commandMap[command]} name'!`
   )
 }

@@ -1,6 +1,6 @@
 import { mkdirSync } from 'fs'
 import { join } from 'path'
-import { Folders, INDEX, STORE_FOLDER_PATH, Status } from 'scripts/constants'
+import { Folders, INDEX, STORE_FOLDER_PATH } from 'scripts/constants'
 
 import { createFile, isDirExist } from 'scripts/utils/file-system'
 import { logger } from 'scripts/utils/loggers'
@@ -10,7 +10,7 @@ import { USE_ACTIONS_HOOK } from 'scripts/templates/useActions-hook.template'
 
 export const generateStore = () => {
   if (isDirExist(STORE_FOLDER_PATH)) {
-    logger.addLog(Status.error, 'Store already exist!')
+    logger.addAlreadyExistLog('Store')
     return
   }
   const HOOKS_FOLDER_PATH = join(STORE_FOLDER_PATH, Folders.hooks)

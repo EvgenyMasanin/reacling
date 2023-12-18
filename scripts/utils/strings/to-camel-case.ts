@@ -1,7 +1,7 @@
-import { upFirst } from './up-first'
+import { capitalizeFirst } from './up-first'
 
 export const toCamelCase = (str: string) =>
   str
     .split('-')
-    .map((word) => upFirst(word))
+    .map((word, i) => (i !== 0 ? capitalizeFirst(word) : word))
     .join('')

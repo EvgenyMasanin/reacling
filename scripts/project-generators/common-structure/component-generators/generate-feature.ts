@@ -1,7 +1,6 @@
 import { mkdirSync } from 'fs'
 import { join } from 'path'
-
-import { Folders, INDEX, Status } from 'scripts/constants'
+import { Folders, INDEX } from 'scripts/constants'
 import { type GenerateFeature } from 'scripts/types'
 import { createFile, mkdirIfNotExist } from 'scripts/utils/file-system'
 import { logger } from 'scripts/utils/loggers'
@@ -21,7 +20,7 @@ export const generateFeature: GenerateFeature = (featureName) => {
   const featureHooksDirPath = join(featureDirPath, Folders.hooks)
 
   if (isDirExist(featureDirPath)) {
-    logger.addLog(Status.error, `Feature '${featureName}' is already exist!`)
+    logger.addAlreadyExistLog(featureName, 'feature')
     return
   }
 
@@ -34,6 +33,6 @@ export const generateFeature: GenerateFeature = (featureName) => {
     createFile(featureDirPath, INDEX, generateFeatureIndexContent())
     createFile(featureHooksDirPath, INDEX)
   } catch (error) {
-    logger.addLog(Status.error, error)
+    logger.addErrorLog(error)
   }
 }
