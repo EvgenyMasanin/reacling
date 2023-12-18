@@ -1,6 +1,6 @@
 {
   "name": "reacling",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "cli utility for generating react project structure",
   "repository": "https://github.com/EvgenyMasanin/reacli.git",
   "scripts": {
