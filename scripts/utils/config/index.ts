@@ -37,7 +37,7 @@ class Config {
     let userConfig: ReaclingConfig
     try {
       userConfig = JSON.parse(
-        readFileSync(`../${REACLING_CONFIG}`, 'utf8')
+        readFileSync(join(__dirname, '../../../../', REACLING_CONFIG), 'utf8')
       ) as ReaclingConfig
     } catch (error) {
       userConfig = JSON.parse(
