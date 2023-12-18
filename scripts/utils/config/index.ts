@@ -36,7 +36,6 @@ class Config {
   constructor() {
     let userConfig: ReaclingConfig
     try {
-      console.log("🚀 ~ constructor ~ join(__dirname, '../../../../../', REACLING_CONFIG):", join(__dirname, '../../../../', REACLING_CONFIG))
       userConfig = JSON.parse(
         readFileSync(join(__dirname, '../../../../../', REACLING_CONFIG), 'utf8')
       ) as ReaclingConfig
