@@ -25,17 +25,17 @@ $ yarn reacling c 'component name'
 
 ## Commands for FSD project
 
-- Generate FSD structure: `$ yarn reacling init'`
-- Generate a page: `$ yarn reacling p' 'page name'`
-- Generate a widget: `$ yarn reacling w' 'widget name'`
-- Generate a entity: `$ yarn reacling e' 'entity name'`
-- Generate a feature: `$ yarn reacling f' 'feature name'`
-- Generate a component for sheared: `$ yarn reacling su' 'component name'`
-- Generate a component for entity: `$ yarn reacling eu' 'entity name' 'component name'`
-- Generate a component for feature: `$ yarn reacling fu' 'feature name' 'component name'`
-- Get help: `$ yarn reacling --help'`
+- Generate FSD structure: `$ yarn reacling init`
+- Generate a page: `$ yarn reacling p 'page name'`
+- Generate a widget: `$ yarn reacling w 'widget name'`
+- Generate a entity: `$ yarn reacling e 'entity name'`
+- Generate a feature: `$ yarn reacling f 'feature name'`
+- Generate a component for sheared: `$ yarn reacling su 'component name'`
+- Generate a component for entity: `$ yarn reacling eu 'entity name' 'component name'`
+- Generate a component for feature: `$ yarn reacling fu 'feature name' 'component name'`
+- Get help: `$ yarn reacling --help`
 
-## Feature Sliced Design
+## Feature-Sliced Design
 
 For using reacling to generate fsd structure create reacling.json file in root directory of your project.
 
