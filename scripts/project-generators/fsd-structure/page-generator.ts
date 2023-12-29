@@ -1,14 +1,14 @@
 import { join } from 'path'
-import { Folders } from 'scripts/constants'
+import { Folder } from 'scripts/constants'
 import { appendToIndex, createComponentFiles } from 'scripts/utils/file-system'
 import { sliceGenerator } from './slice/slice-generator'
 
 export const pageGenerator = (name: string) => {
-  const pageFolderPath = join(Folders.src, Folders.pages)
+  const pageFolderPath = join(Folder.src, Folder.pages)
   const pagePath = join(pageFolderPath, name)
-  const pageUiPath = join(pagePath, Folders.ui)
+  const pageUiPath = join(pagePath, Folder.ui)
 
-  const result = sliceGenerator(Folders.pages, name, {
+  const result = sliceGenerator(Folder.pages, name, {
     withApi: false,
     withModel: false
   })

@@ -2,6 +2,7 @@ import boxen from 'boxen'
 import chalk from 'chalk'
 import { Status } from 'scripts/constants'
 import { capitalizeFirst } from '../strings'
+import { pathTransform } from '../strings/path-transform'
 
 export const isSuccess = (status: Status) => status === Status.success
 
@@ -15,19 +16,22 @@ class Logger {
   }
 
   addLog(status: Status, log: string) {
-    isSuccess(status) ? this.#successLogs.push(log) : this.#errorLogs.push(log)
+    const transformedLog = pathTransform(log)
+    isSuccess(status)
+      ? this.#successLogs.push(transformedLog)
+      : this.#errorLogs.push(transformedLog)
   }
 
   addCommonLog(log: string) {
-    this.#commonLogs.push(log)
+    this.#commonLogs.push(pathTransform(log))
   }
 
   addErrorLog(log: string) {
-    this.addLog(Status.error, log)
+    this.addLog(Status.error, pathTransform(log))
   }
 
   addSuccessLog(log: string) {
-    this.addLog(Status.success, log)
+    this.addLog(Status.success, pathTransform(log))
   }
 
   addAlreadyExistLog(name: string, message: string = '') {

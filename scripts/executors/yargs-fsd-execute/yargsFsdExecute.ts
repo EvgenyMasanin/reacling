@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-types */
-import { Folders } from 'scripts/constants'
+import { Folder } from 'scripts/constants'
 import {
   entityComponentGenerator,
   entityGenerator
@@ -55,7 +55,7 @@ function addCommand({
 }
 
 export function yargsFsdExecute(): void {
-  mkdirIfNotExist('.', Folders.src)
+  mkdirIfNotExist('.', Folder.src)
 
   cli.fail((message, err, argv) => {
     const command = cli.inputCommand

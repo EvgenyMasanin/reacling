@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { Folders } from 'scripts/constants'
+import { Folder } from 'scripts/constants'
 import {
   entityComponentGenerator,
   entityGenerator
@@ -31,7 +31,7 @@ const commandsMatcher: Record<FsdCommands, Function> = {
 const multipleParamCommands: FsdCommands[] = ['eu', 'fu']
 
 export function fsdExecute(command: FsdCommands): void {
-  mkdirIfNotExist('.', Folders.src)
+  mkdirIfNotExist('.', Folder.src)
 
   if (command !== '--help' && command !== 'init') {
     if (multipleParamCommands.includes(command) && !process.argv[4]) {

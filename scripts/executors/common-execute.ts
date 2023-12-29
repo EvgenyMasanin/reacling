@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { Folders } from 'scripts/constants'
+import { Folder } from 'scripts/constants'
 import {
-  generateHook,
-  generatePage,
-  generateFeature,
   generateComponent,
+  generateFeature,
+  generateFeatureComponent,
   generateFeatureHook,
-  generateFeatureComponent
+  generateHook,
+  generatePage
 } from 'scripts/project-generators/common-structure/component-generators'
 
 import type { CommonCommand } from 'scripts/types'
@@ -27,7 +27,7 @@ const commandsMatcher: Record<CommonCommand, Function> = {
 
 export function commonExecute(command: CommonCommand): void {
   console.log('🚀 ~ commonExecute ~ command:', command)
-  mkdirIfNotExist('.', Folders.src)
+  mkdirIfNotExist('.', Folder.src)
 
   if (command === 'fc' || command === 'fh') {
     if (isCorrectCommandsNumber(command)) {

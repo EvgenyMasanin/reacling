@@ -1,0 +1,1 @@
+┌Success:─────────────────────────────────────────────┐│Foldercreated:src/entities/user/ui/avatar.││Filecreated:src/entities/user/ui/avatar/avatar.tsx.││Filecreated:src/entities/user/ui/avatar/index.ts.││Fileupdated:src/entities/user/ui/index.ts.│└───────────────────────────────────────────────────────┘

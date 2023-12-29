@@ -1,12 +1,12 @@
-import type { Folders } from 'scripts/constants'
+import type { Folder } from 'scripts/constants'
 
 export type Layer =
-  | Folders.app
-  | Folders.pages
-  | Folders.widgets
-  | Folders.features
-  | Folders.entities
-  | Folders.sheared
+  | Folder.app
+  | Folder.pages
+  | Folder.widgets
+  | Folder.features
+  | Folder.entities
+  | Folder.sheared
 
 export interface SliceConfig {
   withUi?: boolean

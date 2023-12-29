@@ -1,4 +1,4 @@
-import { Folders } from 'scripts/constants'
+import { Folder } from 'scripts/constants'
 import { mkdirIfNotExist } from 'scripts/utils/file-system'
 import { logger } from 'scripts/utils/loggers'
 import { isDirExist } from 'scripts/utils/predicates'
@@ -28,7 +28,7 @@ export const sliceGenerator = (
   const layerFolderPath = getLayerFolderPath(layer)
   const layerPath = getLayerPath(layer, sliceName)
 
-  mkdirIfNotExist(Folders.src, Folders[layer])
+  mkdirIfNotExist(Folder.src, Folder[layer])
 
   if (isDirExist(layerPath)) {
     logger.addAlreadyExistLog(sliceName, layer)
@@ -51,15 +51,15 @@ export const sliceGenerator = (
 
   if (withLib) createLib(layerPath)
 
-  if (withApi) mkdirIfNotExist(layerPath, Folders.api)
+  if (withApi) mkdirIfNotExist(layerPath, Folder.api)
 
-  if (withModel) mkdirIfNotExist(layerPath, Folders.model)
+  if (withModel) mkdirIfNotExist(layerPath, Folder.model)
 
-  if (withAssets) mkdirIfNotExist(layerPath, Folders.assets)
+  if (withAssets) mkdirIfNotExist(layerPath, Folder.assets)
 
-  if (withConfig) mkdirIfNotExist(layerPath, Folders.config)
+  if (withConfig) mkdirIfNotExist(layerPath, Folder.config)
 
-  if (withTypes) mkdirIfNotExist(layerPath, Folders.types)
+  if (withTypes) mkdirIfNotExist(layerPath, Folder.types)
 
   return true
 }

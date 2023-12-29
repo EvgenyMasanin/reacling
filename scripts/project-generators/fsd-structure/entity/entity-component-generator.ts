@@ -1,9 +1,9 @@
-import { Folders } from 'scripts/constants'
+import { Folder } from 'scripts/constants'
 import { sliceComponentGenerator } from '../slice/slice-component-generator'
 
 export const entityComponentGenerator = (
   entityName: string,
   componentName: string
 ) => {
-  sliceComponentGenerator(Folders.entities, entityName, componentName)
+  sliceComponentGenerator(Folder.entities, entityName, componentName)
 }

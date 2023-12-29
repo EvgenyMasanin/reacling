@@ -1,20 +1,20 @@
 import { mkdirSync } from 'fs'
 import { join } from 'path'
-import { Folders, INDEX, STORE_FOLDER_PATH } from 'scripts/constants'
+import { Folder, INDEX, STORE_FOLDER_PATH } from 'scripts/constants'
 
+import { REDUX_STORE, ROOT_REDUCER } from 'scripts/templates'
+import { REDUX_HOOKS } from 'scripts/templates/redux-hooks.template'
+import { USE_ACTIONS_HOOK } from 'scripts/templates/useActions-hook.template'
 import { createFile, isDirExist } from 'scripts/utils/file-system'
 import { logger } from 'scripts/utils/loggers'
-import { REDUX_HOOKS } from 'scripts/templates/redux-hooks.template'
-import { REDUX_STORE, ROOT_REDUCER } from 'scripts/templates'
-import { USE_ACTIONS_HOOK } from 'scripts/templates/useActions-hook.template'
 
 export const generateStore = () => {
   if (isDirExist(STORE_FOLDER_PATH)) {
     logger.addAlreadyExistLog('Store')
     return
   }
-  const HOOKS_FOLDER_PATH = join(STORE_FOLDER_PATH, Folders.hooks)
-  const REDUCERS_FOLDER_PATH = join(STORE_FOLDER_PATH, Folders.reducers)
+  const HOOKS_FOLDER_PATH = join(STORE_FOLDER_PATH, Folder.hooks)
+  const REDUCERS_FOLDER_PATH = join(STORE_FOLDER_PATH, Folder.reducers)
 
   mkdirSync(STORE_FOLDER_PATH)
   mkdirSync(HOOKS_FOLDER_PATH)

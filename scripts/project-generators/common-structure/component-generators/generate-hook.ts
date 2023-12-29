@@ -1,6 +1,6 @@
 import { join } from 'path'
 
-import { Folders } from 'scripts/constants'
+import { Folder } from 'scripts/constants'
 
 import { type GenerateHook } from 'scripts/types'
 import {
@@ -13,9 +13,9 @@ import { isFileExist } from 'scripts/utils/predicates'
 import { generateHookContent } from '../content-generators'
 
 export const generateHook: GenerateHook = (hookName: string, path?: string) => {
-  mkdirIfNotExist(Folders.src, Folders.hooks)
+  mkdirIfNotExist(Folder.src, Folder.hooks)
 
-  const directoryPath = join(Folders.src, Folders.hooks)
+  const directoryPath = join(Folder.src, Folder.hooks)
 
   if (isFileExist(directoryPath, `${hookName}.ts`)) {
     logger.addAlreadyExistLog(hookName, 'hook')

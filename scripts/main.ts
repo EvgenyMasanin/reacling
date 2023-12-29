@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 /* eslint-disable @typescript-eslint/ban-types */
 
-import {} from 'yarg'
 import { commonExecute } from './executors/common-execute'
 import { fsdExecute } from './executors/fsd-execute'
 import { yargsFsdExecute } from './executors/yargs-fsd-execute'
-import { availableCommands } from './executors/yargs-fsd-execute/types'
+import {
+  availableCommands,
+  type AvailableCommands
+} from './executors/yargs-fsd-execute/types'
 import type { CommonCommand, Methodology } from './types'
 import { cli } from './utils/cli'
 import { config } from './utils/config'
@@ -41,11 +43,17 @@ function testStart() {
     .showHelpOnFail(false)
     .scriptName('reacling')
     .wrap(100)
-    .middleware(() => {
-      if (cli.inputCommand && !availableCommands.includes(cli.inputCommand)) {
-        logger.addUnknownCommandLog(cli.inputCommand)
+    .middleware((props) => {
+      // FIXME: unstable
+      const inputCommand = props._[0] as AvailableCommands
+      if (inputCommand && !availableCommands.includes(inputCommand)) {
+        logger.addUnknownCommandLog(inputCommand)
         throw new Error()
       }
+      // if (cli.inputCommand && !availableCommands.includes(cli.inputCommand)) {
+      //   logger.addUnknownCommandLog(cli.inputCommand)
+      //   throw new Error()
+      // }
     })
 
   yargsFsdExecute()

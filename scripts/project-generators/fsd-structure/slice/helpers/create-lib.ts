@@ -1,15 +1,15 @@
 import { join } from 'path'
-import { Folders, INDEX } from 'scripts/constants'
+import { Folder, INDEX } from 'scripts/constants'
 import { createFile, mkdirIfNotExist } from 'scripts/utils/file-system'
 
 export const createLib = (path: string) => {
-  mkdirIfNotExist(path, Folders.lib)
+  mkdirIfNotExist(path, Folder.lib)
 
-  const layerLibPath = join(path, Folders.lib)
+  const layerLibPath = join(path, Folder.lib)
 
-  mkdirIfNotExist(layerLibPath, Folders.hooks)
-  mkdirIfNotExist(layerLibPath, Folders.helpers)
+  mkdirIfNotExist(layerLibPath, Folder.hooks)
+  mkdirIfNotExist(layerLibPath, Folder.helpers)
 
-  createFile(join(layerLibPath, Folders.hooks), INDEX)
-  createFile(join(layerLibPath, Folders.helpers), INDEX)
+  createFile(join(layerLibPath, Folder.hooks), INDEX)
+  createFile(join(layerLibPath, Folder.helpers), INDEX)
 }

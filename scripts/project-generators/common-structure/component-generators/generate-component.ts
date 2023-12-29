@@ -1,19 +1,19 @@
 import { mkdirSync } from 'fs'
-import { Folders } from 'scripts/constants'
+import { Folder } from 'scripts/constants'
 import { type GenerateComponent } from 'scripts/types'
 
-import { generateDirectoryPath } from '../content-generators'
 import {
-  mkdirIfNotExist,
-  createComponentFiles
+  createComponentFiles,
+  mkdirIfNotExist
 } from 'scripts/utils/file-system'
 import { logger } from 'scripts/utils/loggers'
 import { isDirExist } from 'scripts/utils/predicates'
+import { generateDirectoryPath } from '../content-generators'
 
 export const generateComponent: GenerateComponent = (componentName, path) => {
-  mkdirIfNotExist(Folders.src, Folders.components)
+  mkdirIfNotExist(Folder.src, Folder.components)
 
-  const directoryPath = generateDirectoryPath(Folders.components, componentName)
+  const directoryPath = generateDirectoryPath(Folder.components, componentName)
 
   if (isDirExist(path ?? directoryPath)) {
     logger.addAlreadyExistLog(componentName, 'component')

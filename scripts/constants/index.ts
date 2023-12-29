@@ -1,6 +1,6 @@
 import { join } from 'path'
 
-export enum Folders {
+export enum Folder {
   src = 'src',
   hooks = 'hooks',
   components = 'components',
@@ -25,8 +25,8 @@ export enum Folders {
   helpers = 'helpers'
 }
 
-export const PAGE_FOLDER_PATH = join(Folders.src, Folders.pages)
-export const STORE_FOLDER_PATH = join(Folders.src, Folders.store)
+export const PAGE_FOLDER_PATH = join(Folder.src, Folder.pages)
+export const STORE_FOLDER_PATH = join(Folder.src, Folder.store)
 export const INDEX = 'index.ts'
 
 export const REACLING_CONFIG = 'reacling.json'

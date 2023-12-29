@@ -1,6 +1,6 @@
-import { Folders } from 'scripts/constants'
+import { Folder } from 'scripts/constants'
 
 export const generateDirectoryPath = (
-  directory: Folders,
+  directory: Folder,
   componentName: string
-) => `${Folders.src}/${directory}/${componentName}`
+) => `${Folder.src}/${directory}/${componentName}`

@@ -1,20 +1,20 @@
 import { join } from 'path'
-import { generateHook } from './generate-hook'
+import { Folder } from 'scripts/constants'
 import { type GenerateFeatureHook } from 'scripts/types'
-import { Folders } from 'scripts/constants'
-import { isFileExist } from 'scripts/utils/predicates'
 import { logger } from 'scripts/utils/loggers'
+import { isFileExist } from 'scripts/utils/predicates'
 import { checkFeatureExistence } from './check-feature-existence'
+import { generateHook } from './generate-hook'
 
 export const generateFeatureHook: GenerateFeatureHook = (
   featureName,
   hookName
 ) => {
   const featureHooksDirPath = join(
-    Folders.src,
-    Folders.features,
+    Folder.src,
+    Folder.features,
     featureName,
-    Folders.hooks
+    Folder.hooks
   )
 
   checkFeatureExistence(featureName, featureHooksDirPath)

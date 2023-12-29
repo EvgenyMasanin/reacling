@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
-import { Folders, INDEX } from 'scripts/constants'
+import { Folder, INDEX } from 'scripts/constants'
 import { config } from 'scripts/utils/config'
 import {
   createComponentFiles,
@@ -11,40 +11,40 @@ import { createFileIfNotExist } from 'scripts/utils/file-system/create-file-if-n
 const mkAppFolder = () => {
   const { withProviders } = config.getAppConfig()
 
-  const appFolderPath = join(Folders.src, Folders.app)
+  const appFolderPath = join(Folder.src, Folder.app)
 
-  mkdirIfNotExist(Folders.src, Folders.app)
-  if (withProviders) mkdirIfNotExist(appFolderPath, Folders.providers)
-  const path = join(appFolderPath, `${Folders.app}.tsx`)
+  mkdirIfNotExist(Folder.src, Folder.app)
+  if (withProviders) mkdirIfNotExist(appFolderPath, Folder.providers)
+  const path = join(appFolderPath, `${Folder.app}.tsx`)
   try {
     readFileSync(path)
   } catch (error) {
-    createComponentFiles(appFolderPath, Folders.app)
+    createComponentFiles(appFolderPath, Folder.app)
   }
 }
 
 const mkSharedFolder = () => {
-  const shearedFolderPath = join(Folders.src, Folders.sheared)
+  const shearedFolderPath = join(Folder.src, Folder.sheared)
 
-  mkdirIfNotExist(Folders.src, Folders.sheared)
-  mkdirIfNotExist(shearedFolderPath, Folders.ui)
-  mkdirIfNotExist(shearedFolderPath, Folders.assets)
-  mkdirIfNotExist(shearedFolderPath, Folders.lib)
-  mkdirIfNotExist(shearedFolderPath, Folders.api)
-  mkdirIfNotExist(shearedFolderPath, Folders.config)
-  mkdirIfNotExist(shearedFolderPath, Folders.types)
+  mkdirIfNotExist(Folder.src, Folder.sheared)
+  mkdirIfNotExist(shearedFolderPath, Folder.ui)
+  mkdirIfNotExist(shearedFolderPath, Folder.assets)
+  mkdirIfNotExist(shearedFolderPath, Folder.lib)
+  mkdirIfNotExist(shearedFolderPath, Folder.api)
+  mkdirIfNotExist(shearedFolderPath, Folder.config)
+  mkdirIfNotExist(shearedFolderPath, Folder.types)
 }
 
 const mkPagesFolder = () => {
-  mkdirIfNotExist(Folders.src, Folders.pages)
-  createFileIfNotExist(join(Folders.src, Folders.pages), INDEX)
+  mkdirIfNotExist(Folder.src, Folder.pages)
+  createFileIfNotExist(join(Folder.src, Folder.pages), INDEX)
 }
 
 export const initProject = () => {
   mkAppFolder()
   mkSharedFolder()
   mkPagesFolder()
-  mkdirIfNotExist(Folders.src, Folders.widgets)
-  mkdirIfNotExist(Folders.src, Folders.features)
-  mkdirIfNotExist(Folders.src, Folders.entities)
+  mkdirIfNotExist(Folder.src, Folder.widgets)
+  mkdirIfNotExist(Folder.src, Folder.features)
+  mkdirIfNotExist(Folder.src, Folder.entities)
 }
