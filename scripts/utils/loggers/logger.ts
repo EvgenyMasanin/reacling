@@ -1,6 +1,6 @@
-import { Status } from 'scripts/constants'
-import chalk from 'chalk'
 import boxen from 'boxen'
+import chalk from 'chalk'
+import { Status } from 'scripts/constants'
 import { capitalizeFirst } from '../strings'
 
 export const isSuccess = (status: Status) => status === Status.success
@@ -42,6 +42,10 @@ class Logger {
       Status.error,
       `${chalk.underline.italic(name)} ${message} is not exist!`
     )
+  }
+
+  addUnknownCommandLog(command: string) {
+    this.addLog(Status.error, `Unknown command "${chalk.italic(command)}"!`)
   }
 
   #getLogs(status?: Status) {

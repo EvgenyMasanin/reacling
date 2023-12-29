@@ -8,10 +8,14 @@ export const pageGenerator = (name: string) => {
   const pagePath = join(pageFolderPath, name)
   const pageUiPath = join(pagePath, Folders.ui)
 
-  sliceGenerator(Folders.pages, name, {
+  const result = sliceGenerator(Folders.pages, name, {
     withApi: false,
     withModel: false
   })
+
+  if (!result) {
+    return
+  }
 
   createComponentFiles(pageUiPath, name)
 

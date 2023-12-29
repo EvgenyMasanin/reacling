@@ -10,8 +10,8 @@ import {
   getLayerPath
 } from './helpers'
 
-import type { Layer, SliceConfig } from './types'
 import { config } from 'scripts/utils/config'
+import type { Layer, SliceConfig } from './types'
 
 const defaultConfig: SliceConfig = {
   withUi: true,
@@ -32,15 +32,10 @@ export const sliceGenerator = (
 
   if (isDirExist(layerPath)) {
     logger.addAlreadyExistLog(sliceName, layer)
-    return
+    return false
   }
 
   mkdirIfNotExist(layerFolderPath, sliceName)
-
-  // const { withApi, withLib, withModel, withUi } = {
-  //   ...defaultConfig,
-  //   ..._config
-  // }
 
   const {
     withApi,
@@ -65,4 +60,6 @@ export const sliceGenerator = (
   if (withConfig) mkdirIfNotExist(layerPath, Folders.config)
 
   if (withTypes) mkdirIfNotExist(layerPath, Folders.types)
+
+  return true
 }
