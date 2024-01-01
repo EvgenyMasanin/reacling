@@ -11,7 +11,7 @@ class Logger {
   readonly #errorLogs: string[] = []
   readonly #commonLogs: string[] = []
 
-  incorrectCommand() {
+  incorrectCommandLog() {
     this.addErrorLog('Incorrect command! Use reacling --help.')
   }
 

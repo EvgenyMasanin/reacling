@@ -1,0 +1,1 @@
+┌Success:─────────────────────────────────────────────────────────────┐│Foldercreated:src/features/follow/ui/follow-button.││Filecreated:src/features/follow/ui/follow-button/follow-button.tsx.││Filecreated:src/features/follow/ui/follow-button/index.ts.││Fileupdated:src/features/follow/ui/index.ts.│└───────────────────────────────────────────────────────────────────────┘

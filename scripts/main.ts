@@ -38,27 +38,28 @@ function start(): void {
   logger.writeLogs()
 }
 function testStart() {
-  cli
-    .help(false)
+  if (process.argv[2] === '--help') {
+    writeHelp()
+    return
+  }
+
+  cli.yargs
+    .wrap(100)
+    .help('extended-help')
     .showHelpOnFail(false)
     .scriptName('reacling')
-    .wrap(100)
+    .usage('Usage: $0 <command>')
     .middleware((props) => {
-      // FIXME: unstable
       const inputCommand = props._[0] as AvailableCommands
       if (inputCommand && !availableCommands.includes(inputCommand)) {
         logger.addUnknownCommandLog(inputCommand)
         throw new Error()
       }
-      // if (cli.inputCommand && !availableCommands.includes(cli.inputCommand)) {
-      //   logger.addUnknownCommandLog(cli.inputCommand)
-      //   throw new Error()
-      // }
     })
 
   yargsFsdExecute()
 
-  cli.parseSync()
+  cli.yargs.parseSync()
   logger.writeLogs()
 }
 

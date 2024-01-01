@@ -3,5 +3,5 @@ import { join } from 'path'
 
 export const readSnapshot = (folderName: string, snapshotName: string) =>
   readFileSync(
-    join('tests', 'snapshots', folderName, `${snapshotName}.txt`)
+    join('testing', 'snapshots', folderName, `${snapshotName}.txt`)
   ).toString()

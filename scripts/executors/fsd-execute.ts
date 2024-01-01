@@ -35,10 +35,10 @@ export function fsdExecute(command: FsdCommands): void {
 
   if (command !== '--help' && command !== 'init') {
     if (multipleParamCommands.includes(command) && !process.argv[4]) {
-      logger.incorrectCommand()
+      logger.incorrectCommandLog()
       return
     } else if (!process.argv[3]) {
-      logger.incorrectCommand()
+      logger.incorrectCommandLog()
       return
     }
   }

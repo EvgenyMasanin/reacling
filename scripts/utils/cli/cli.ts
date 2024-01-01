@@ -5,7 +5,7 @@ import { hideBin } from 'yargs/helpers'
 const args = hideBin(process.argv)
 
 export const cli = {
-  ...yargs,
+  yargs,
   args,
   inputCommand: args[0] as AvailableCommands
 }

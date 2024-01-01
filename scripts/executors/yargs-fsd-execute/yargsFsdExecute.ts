@@ -43,7 +43,7 @@ function addCommand({
   describe,
   handler
 }: CommandConfig) {
-  cli.command<InputParameters>({
+  cli.yargs.command<InputParameters>({
     command: parameter ? `${command} ${parameter}` : command,
     aliases: alias,
     describe,
@@ -57,7 +57,7 @@ function addCommand({
 export function yargsFsdExecute(): void {
   mkdirIfNotExist('.', Folder.src)
 
-  cli.fail((message, err, argv) => {
+  cli.yargs.fail((message, err, argv) => {
     const command = cli.inputCommand
     const missingCommandsCount = +message.match(/\d/)[0]
     logger.addErrorLog(missingArgumentError[command](missingCommandsCount))
@@ -66,6 +66,22 @@ export function yargsFsdExecute(): void {
   })
 
   commands.forEach(addCommand)
+
+  // cli.yargs.command({
+  //   command: 't <p>',
+  //   builder: (argv) => {
+  //     argv.positional('p', {
+  //       demandOption: true
+  //     })
+  //     return argv
+  //   },
+  //   aliases: '',
+  //   describe: '',
+  //   handler: () => {
+  //     logger.addCommonLog('qwerty')
+  //   }
+  // })
+
   //   if (command !== '--help' && command !== 'init') {
   //     if (multipleParamCommands.includes(command) && !process.argv[4]) {
   //       logger.incorrectCommand()

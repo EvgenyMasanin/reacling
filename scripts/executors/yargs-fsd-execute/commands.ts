@@ -56,7 +56,7 @@ const addWidgetConfig: CommandConfig = {
 }
 const addShearedUIConfig: CommandConfig = {
   command: Command.shearedUI,
-  parameter: Parameter.full,
+  parameter: Parameter.name,
   alias: CommandAlias.shearedUI,
   describe: 'add new sheared component',
   handler: shearedComponentGenerator
