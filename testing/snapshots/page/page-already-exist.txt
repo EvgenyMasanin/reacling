@@ -1,1 +1,3 @@
-┌Error:─────────────────────────┐│profilepagesisalreadyexist!│└─────────────────────────────────┘
+ Error: 
+  profile pages is already exist!
+

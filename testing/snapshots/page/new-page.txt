@@ -1,1 +1,13 @@
-┌Success:─────────────────────────────────────────────┐│Foldercreated:src/pages/profile.││Foldercreated:src/pages/profile/ui.││Filecreated:src/pages/profile/ui/index.ts.││Foldercreated:src/pages/profile/lib.││Foldercreated:src/pages/profile/lib/hooks.││Foldercreated:src/pages/profile/lib/helpers.││Filecreated:src/pages/profile/lib/hooks/index.ts.││Filecreated:src/pages/profile/lib/helpers/index.ts.││Filecreated:src/pages/profile/ui/profile.tsx.││Filecreated:src/pages/profile/ui/index.ts.││Fileupdated:src/pages/index.ts.│└───────────────────────────────────────────────────────┘
+ Success: 
+  Folder created: src/pages/profile.
+  Folder created: src/pages/profile/ui.
+  File created: src/pages/profile/ui/index.ts.
+  Folder created: src/pages/profile/lib.
+  Folder created: src/pages/profile/lib/hooks.
+  Folder created: src/pages/profile/lib/helpers.
+  File created: src/pages/profile/lib/hooks/index.ts.
+  File created: src/pages/profile/lib/helpers/index.ts.
+  File created: src/pages/profile/ui/profile.tsx.
+  File created: src/pages/profile/ui/index.ts.
+  File updated: src/pages/index.ts.
+

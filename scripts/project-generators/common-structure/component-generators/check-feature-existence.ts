@@ -2,6 +2,7 @@ import { question } from 'scripts/utils/dialog'
 import { isDirExist } from 'scripts/utils/predicates'
 import { generateFeature } from './generate-feature'
 
+// TODO: add this to entity
 export const checkFeatureExistence = (
   featureName: string,
   featureDirPath: string

@@ -1,1 +1,3 @@
-┌Error:─────────────────────────────┐│Missingargument:"component-name"!│└─────────────────────────────────────┘
+ Error: 
+  Missing argument: "component-name"!
+

@@ -1,1 +1,12 @@
-┌Success:───────────────────────────────────────────────┐│Foldercreated:src/features/follow.││Foldercreated:src/features/follow/ui.││Filecreated:src/features/follow/ui/index.ts.││Foldercreated:src/features/follow/lib.││Foldercreated:src/features/follow/lib/hooks.││Foldercreated:src/features/follow/lib/helpers.││Filecreated:src/features/follow/lib/hooks/index.ts.││Filecreated:src/features/follow/lib/helpers/index.ts.││Foldercreated:src/features/follow/api.││Foldercreated:src/features/follow/model.│└─────────────────────────────────────────────────────────┘
+ Success: 
+  Folder created: src/features/follow.
+  Folder created: src/features/follow/ui.
+  File created: src/features/follow/ui/index.ts.
+  Folder created: src/features/follow/lib.
+  Folder created: src/features/follow/lib/hooks.
+  Folder created: src/features/follow/lib/helpers.
+  File created: src/features/follow/lib/hooks/index.ts.
+  File created: src/features/follow/lib/helpers/index.ts.
+  Folder created: src/features/follow/api.
+  Folder created: src/features/follow/model.
+

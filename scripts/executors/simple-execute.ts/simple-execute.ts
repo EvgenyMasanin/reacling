@@ -23,7 +23,7 @@ function addCommand({
   return addCommand
 }
 
-export function yargsFsdExecute(): void {
+export function simpleExecute(): void {
   mkdirIfNotExist('.', Folder.src)
 
   cli.yargs.fail(handleFail)

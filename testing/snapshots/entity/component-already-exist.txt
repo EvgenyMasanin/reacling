@@ -1,1 +1,3 @@
-┌Error:─────────────────────────────────────────────┐│avatarcomponentofuserentitiesisalreadyexist!│└─────────────────────────────────────────────────────┘
+ Error: 
+  avatar component of user entities is already exist!
+

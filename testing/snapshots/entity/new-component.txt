@@ -1,1 +1,6 @@
-┌Success:─────────────────────────────────────────────┐│Foldercreated:src/entities/user/ui/avatar.││Filecreated:src/entities/user/ui/avatar/avatar.tsx.││Filecreated:src/entities/user/ui/avatar/index.ts.││Fileupdated:src/entities/user/ui/index.ts.│└───────────────────────────────────────────────────────┘
+ Success: 
+  Folder created: src/entities/user/ui/avatar.
+  File created: src/entities/user/ui/avatar/avatar.tsx.
+  File created: src/entities/user/ui/avatar/index.ts.
+  File updated: src/entities/user/ui/index.ts.
+

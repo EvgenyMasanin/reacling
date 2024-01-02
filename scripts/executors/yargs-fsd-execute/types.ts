@@ -11,14 +11,20 @@ export enum Parameter {
 }
 
 export interface CommandConfig {
-  command: Command
+  command: FsdCommand
   parameter?: Parameter
-  alias?: CommandAlias
+  alias?: FsdCommandAlias
   describe?: string
   handler: (name: string, componentName?: string) => void
 }
 
-export enum Command {
+export enum SimpleCommand {
+  component = 'c',
+  page = 'p',
+  hook = 'h'
+}
+
+export enum FsdCommand {
   init = 'init',
   entity = 'e',
   feature = 'f',
@@ -29,7 +35,7 @@ export enum Command {
   shearedUI = 'su'
 }
 
-export enum CommandAlias {
+export enum FsdCommandAlias {
   entity = 'entity',
   feature = 'feature',
   page = 'page',
@@ -39,9 +45,14 @@ export enum CommandAlias {
   shearedUI = 'sheared-ui'
 }
 
-export const availableCommands = [
-  ...Object.values(Command),
-  ...Object.values(CommandAlias)
+export const availableFsdCommands = [
+  ...Object.values(FsdCommand),
+  ...Object.values(FsdCommandAlias)
 ]
 
-export type AvailableCommands = (typeof availableCommands)[number]
+export type AvailableFsdCommands = (typeof availableFsdCommands)[number]
+
+export type MissingFsdArgumentError = Record<
+  Exclude<AvailableFsdCommands, 'init'>,
+  (argumentCount: number) => string
+>

@@ -1,1 +1,3 @@
-┌Error:─────────────────────────────────────────────┐│Missingarguments:"feature-name""component-name"!│└─────────────────────────────────────────────────────┘
+ Error: 
+  Missing arguments: "feature-name" "component-name"!
+

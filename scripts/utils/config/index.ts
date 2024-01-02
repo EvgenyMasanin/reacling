@@ -1,43 +1,21 @@
 import { readFileSync } from 'fs'
+import { join } from 'path'
+import { REACLING_CONFIG } from 'scripts/constants'
 import type { Layer } from 'scripts/project-generators/fsd-structure/slice/types'
 import type { ReaclingConfig, SliceStructure } from 'scripts/types'
 import { deepMerge } from '../deep-merge'
-import { REACLING_CONFIG } from 'scripts/constants'
-import { join } from 'path'
 
 class Config {
-  readonly #config: ReaclingConfig = {
-    methodology: 'fsd',
-    fsdStructure: {
-      app: { withProviders: true },
-      pages: {
-        withLib: true,
-        withUi: true
-      },
-      widgets: {
-        withLib: true,
-        withUi: true
-      },
-      features: {
-        withApi: true,
-        withLib: true,
-        withModel: true,
-        withUi: true
-      },
-      entities: {
-        withApi: true,
-        withLib: true,
-        withModel: true,
-        withUi: true
-      }
-    }
-  }
+  readonly #config: ReaclingConfig
 
   constructor() {
     let userConfig: ReaclingConfig
     try {
       userConfig = JSON.parse(
-        readFileSync(join(__dirname, '../../../../../', REACLING_CONFIG), 'utf8')
+        readFileSync(
+          join(__dirname, '../../../../../', REACLING_CONFIG),
+          'utf8'
+        )
       ) as ReaclingConfig
     } catch (error) {
       userConfig = JSON.parse(
@@ -45,10 +23,10 @@ class Config {
       ) as ReaclingConfig
     }
 
-    this.#config = deepMerge(this.#config, userConfig) as ReaclingConfig
+    this.#config = deepMerge(this.#config ?? {}, userConfig) as ReaclingConfig
   }
 
-  getMethodology() {
+  get methodology() {
     return this.#config.methodology
   }
 

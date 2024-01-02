@@ -1,1 +1,3 @@
-┌Error:────────────────────────────────────────────┐│Missingarguments:"entity-name""component-name"!│└────────────────────────────────────────────────────┘
+ Error: 
+  Missing arguments: "entity-name" "component-name"!
+

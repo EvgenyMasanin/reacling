@@ -1,1 +1,3 @@
-┌Error:──────────────────────────────────────────────────────┐│follow-buttoncomponentoffollowfeaturesisalreadyexist!│└──────────────────────────────────────────────────────────────┘
+ Error: 
+  follow-button component of follow features is already exist!
+

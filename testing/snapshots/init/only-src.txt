@@ -1,1 +1,18 @@
-┌Success:───────────────────────────┐│Foldercreated:src/app.││Foldercreated:src/app/providers.││Filecreated:src/app/app.tsx.││Filecreated:src/app/index.ts.││Foldercreated:src/sheared.││Foldercreated:src/sheared/ui.││Foldercreated:src/sheared/assets.││Foldercreated:src/sheared/lib.││Foldercreated:src/sheared/api.││Foldercreated:src/sheared/config.││Foldercreated:src/sheared/types.││Foldercreated:src/pages.││Filecreated:src/pages/index.ts.││Foldercreated:src/widgets.││Foldercreated:src/features.││Foldercreated:src/entities.│└─────────────────────────────────────┘
+ Success: 
+  Folder created: src/app.
+  Folder created: src/app/providers.
+  File created: src/app/app.tsx.
+  File created: src/app/index.ts.
+  Folder created: src/sheared.
+  Folder created: src/sheared/ui.
+  Folder created: src/sheared/assets.
+  Folder created: src/sheared/lib.
+  Folder created: src/sheared/api.
+  Folder created: src/sheared/config.
+  Folder created: src/sheared/types.
+  Folder created: src/pages.
+  File created: src/pages/index.ts.
+  Folder created: src/widgets.
+  Folder created: src/features.
+  Folder created: src/entities.
+

@@ -1,1 +1,12 @@
-┌Success:─────────────────────────────────────────────┐│Foldercreated:src/entities/user.││Foldercreated:src/entities/user/ui.││Filecreated:src/entities/user/ui/index.ts.││Foldercreated:src/entities/user/lib.││Foldercreated:src/entities/user/lib/hooks.││Foldercreated:src/entities/user/lib/helpers.││Filecreated:src/entities/user/lib/hooks/index.ts.││Filecreated:src/entities/user/lib/helpers/index.ts.││Foldercreated:src/entities/user/api.││Foldercreated:src/entities/user/model.│└───────────────────────────────────────────────────────┘
+ Success: 
+  Folder created: src/entities/user.
+  Folder created: src/entities/user/ui.
+  File created: src/entities/user/ui/index.ts.
+  Folder created: src/entities/user/lib.
+  Folder created: src/entities/user/lib/hooks.
+  Folder created: src/entities/user/lib/helpers.
+  File created: src/entities/user/lib/hooks/index.ts.
+  File created: src/entities/user/lib/helpers/index.ts.
+  Folder created: src/entities/user/api.
+  Folder created: src/entities/user/model.
+

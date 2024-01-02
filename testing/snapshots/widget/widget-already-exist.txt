@@ -1,1 +1,3 @@
-┌Error:───────────────────────────┐│profilewidgetsisalreadyexist!│└───────────────────────────────────┘
+ Error: 
+  profile widgets is already exist!
+

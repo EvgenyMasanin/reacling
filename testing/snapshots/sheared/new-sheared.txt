@@ -1,1 +1,6 @@
-┌Success:───────────────────────────────────────┐│Foldercreated:src/sheared/ui/button.││Filecreated:src/sheared/ui/button/button.tsx.││Filecreated:src/sheared/ui/button/index.ts.││Fileupdated:src/sheared/ui/index.ts.│└─────────────────────────────────────────────────┘
+ Success: 
+  Folder created: src/sheared/ui/button.
+  File created: src/sheared/ui/button/button.tsx.
+  File created: src/sheared/ui/button/index.ts.
+  File updated: src/sheared/ui/index.ts.
+

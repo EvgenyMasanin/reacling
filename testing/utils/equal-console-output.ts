@@ -1,6 +1,6 @@
 import { type Command } from 'testing/commands/types'
 import { execScript } from './exec-script'
-import { normalizeString } from './normalize-string'
+import { normalizeConsoleOutput } from './normalize-string'
 import { readSnapshot } from './read-snapshot'
 
 export const equalConsoleOutput = (
@@ -13,5 +13,5 @@ export const equalConsoleOutput = (
 
   const snapshot = readSnapshot(snapshotName, snapshotFileName)
 
-  expect(normalizeString(consoleOutput)).toBe(snapshot)
+  expect(normalizeConsoleOutput(consoleOutput)).toBe(snapshot)
 }

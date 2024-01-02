@@ -1,1 +1,3 @@
-┌Error:─────────────────────────┐│userentitiesisalreadyexist!│└─────────────────────────────────┘
+ Error: 
+  user entities is already exist!
+

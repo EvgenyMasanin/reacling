@@ -1,8 +1,8 @@
 import { execSync } from 'child_process'
-import { writeFileSync } from 'fs'
+import { mkdirSync, writeFileSync } from 'fs'
 import { join } from 'path'
 import yargs, { type Argv } from 'yargs'
-import { normalizeString } from './normalize-string'
+import { normalizeConsoleOutput } from './normalize-string'
 
 interface InputArguments {
   folder: string
@@ -13,9 +13,6 @@ interface InputArguments {
 yargs
   .scriptName('snapshot')
   .usage('usage: $0 <command>')
-  // .fail((props) => {
-  //   console.log('🚀 ~ .wrap ~ props:', props)
-  // })
   .command<InputArguments>({
     command: 'g <folder> <fileName> <parameters>',
     aliases: 'generate',
@@ -58,15 +55,18 @@ function generateSnapshot({
   fileName,
   parameters
 }: GenerateSnapshotProps) {
-  console.log('🚀 ~ folder:', folder, fileName, parameters)
   const snapshotsFolderPath = join('testing', 'snapshots', folder)
 
   const consoleOutput = execSync(
     `ts-node -r tsconfig-paths/register ./scripts/main.ts ${parameters}`
   ).toString()
 
+  try {
+    mkdirSync(snapshotsFolderPath)
+  } catch {}
+
   writeFileSync(
     join(snapshotsFolderPath, `${fileName}.txt`),
-    normalizeString(consoleOutput)
+    normalizeConsoleOutput(consoleOutput)
   )
 }

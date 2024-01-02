@@ -1,1 +1,3 @@
-┌Error:────────────────────┐│usrentitiesisnotexist!│└────────────────────────────┘
+ Error: 
+  usr entities is not exist!
+

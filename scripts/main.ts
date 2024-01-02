@@ -1,42 +1,45 @@
 #!/usr/bin/env node
-/* eslint-disable @typescript-eslint/ban-types */
 
 import { commonExecute } from './executors/common-execute'
-import { fsdExecute } from './executors/fsd-execute'
 import { yargsFsdExecute } from './executors/yargs-fsd-execute'
 import {
-  availableCommands,
-  type AvailableCommands
+  availableFsdCommands,
+  type AvailableFsdCommands
 } from './executors/yargs-fsd-execute/types'
-import type { CommonCommand, Methodology } from './types'
+import type { CommonCommand, FsdCommands, Methodology } from './types'
 import { cli } from './utils/cli'
 import { config } from './utils/config'
 import { logger, writeHelp } from './utils/loggers'
 
 // import { generateStore } from './utils/redux-generators'
 
-const methodology: Record<Methodology, Function> = {
-  fsd: fsdExecute,
+const methodology: Record<
+  Methodology,
+  (command?: CommonCommand | FsdCommands) => void
+> = {
+  // fsd: fsdExecute,
+  fsd: yargsFsdExecute,
   common: commonExecute
 }
 
 // start()
 
 // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
-function start(): void {
-  const commandsNumber = process.argv.length - 2
+// function start(): void {
+//   const commandsNumber = process.argv.length - 2
 
-  if (commandsNumber === 0) {
-    writeHelp()
-    return
-  }
+//   if (commandsNumber === 0) {
+//     writeHelp()
+//     return
+//   }
 
-  const command = process.argv[2] as CommonCommand
+//   const command = process.argv[2] as CommonCommand
 
-  methodology[config.getMethodology()](command)
+//   methodology[config.getMethodology()](command)
 
-  logger.writeLogs()
-}
+//   logger.writeLogs()
+// }
+
 function testStart() {
   if (process.argv[2] === '--help') {
     writeHelp()
@@ -50,14 +53,14 @@ function testStart() {
     .scriptName('reacling')
     .usage('Usage: $0 <command>')
     .middleware((props) => {
-      const inputCommand = props._[0] as AvailableCommands
-      if (inputCommand && !availableCommands.includes(inputCommand)) {
+      const inputCommand = props._[0] as AvailableFsdCommands
+      if (inputCommand && !availableFsdCommands.includes(inputCommand)) {
         logger.addUnknownCommandLog(inputCommand)
         throw new Error()
       }
     })
 
-  yargsFsdExecute()
+  methodology[config.methodology]()
 
   cli.yargs.parseSync()
   logger.writeLogs()

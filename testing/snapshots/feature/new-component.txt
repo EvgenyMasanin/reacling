@@ -1,1 +1,6 @@
-┌Success:─────────────────────────────────────────────────────────────┐│Foldercreated:src/features/follow/ui/follow-button.││Filecreated:src/features/follow/ui/follow-button/follow-button.tsx.││Filecreated:src/features/follow/ui/follow-button/index.ts.││Fileupdated:src/features/follow/ui/index.ts.│└───────────────────────────────────────────────────────────────────────┘
+ Success: 
+  Folder created: src/features/follow/ui/follow-button.
+  File created: src/features/follow/ui/follow-button/follow-button.tsx.
+  File created: src/features/follow/ui/follow-button/index.ts.
+  File updated: src/features/follow/ui/index.ts.
+

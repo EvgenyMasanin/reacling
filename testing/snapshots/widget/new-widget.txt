@@ -1,1 +1,13 @@
-┌Success:───────────────────────────────────────────────┐│Foldercreated:src/widgets/profile.││Foldercreated:src/widgets/profile/ui.││Filecreated:src/widgets/profile/ui/index.ts.││Foldercreated:src/widgets/profile/lib.││Foldercreated:src/widgets/profile/lib/hooks.││Foldercreated:src/widgets/profile/lib/helpers.││Filecreated:src/widgets/profile/lib/hooks/index.ts.││Filecreated:src/widgets/profile/lib/helpers/index.ts.││Filecreated:src/widgets/profile/ui/profile.tsx.││Filecreated:src/widgets/profile/ui/index.ts.││Fileupdated:src/widgets/index.ts.│└─────────────────────────────────────────────────────────┘
+ Success: 
+  Folder created: src/widgets/profile.
+  Folder created: src/widgets/profile/ui.
+  File created: src/widgets/profile/ui/index.ts.
+  Folder created: src/widgets/profile/lib.
+  Folder created: src/widgets/profile/lib/hooks.
+  Folder created: src/widgets/profile/lib/helpers.
+  File created: src/widgets/profile/lib/hooks/index.ts.
+  File created: src/widgets/profile/lib/helpers/index.ts.
+  File created: src/widgets/profile/ui/profile.tsx.
+  File created: src/widgets/profile/ui/index.ts.
+  File updated: src/widgets/index.ts.
+

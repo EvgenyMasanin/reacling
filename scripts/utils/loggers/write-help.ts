@@ -41,7 +41,7 @@ export const FSD_REACT_COMMANDS = boxen(
 //   `
 
 export const writeHelp: WriteHelp = () => {
-  switch (config.getMethodology()) {
+  switch (config.methodology) {
     case 'common':
       console.log(REACT_COMMANDS)
       break

@@ -1,1 +1,3 @@
-┌Error:────────────────────────┐│Missingargument:"page-name"!│└────────────────────────────────┘
+ Error: 
+  Missing argument: "page-name"!
+

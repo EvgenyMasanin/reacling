@@ -1,4 +1,6 @@
-import { type AvailableCommands } from './types'
+import { cli } from 'scripts/utils/cli'
+import { logger } from 'scripts/utils/loggers'
+import { type MissingFsdArgumentError } from './types'
 
 const MISSING_ARGUMENT = 'Missing argument'
 
@@ -27,12 +29,15 @@ const ErrorHandler = {
   shearedUI: () => MISSING_COMPONENT_NAME
 }
 
-type MissingArgumentError = Record<
-  Exclude<AvailableCommands, 'init'>,
-  (argumentCount: number) => string
->
+export const handleFail = (message: string) => {
+  const command = cli.inputCommand
+  const missingCommandsCount = +message.match(/\d/)[0]
+  logger.addErrorLog(missingArgumentError[command](missingCommandsCount))
 
-export const missingArgumentError: MissingArgumentError = {
+  throw new Error()
+}
+
+export const missingArgumentError: MissingFsdArgumentError = {
   e: ErrorHandler.entity,
   eu: ErrorHandler.entityUI,
   entity: ErrorHandler.entity,

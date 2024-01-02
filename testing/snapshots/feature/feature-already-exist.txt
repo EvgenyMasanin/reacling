@@ -1,1 +1,3 @@
-┌Error:───────────────────────────┐│followfeaturesisalreadyexist!│└───────────────────────────────────┘
+ Error: 
+  follow features is already exist!
+
