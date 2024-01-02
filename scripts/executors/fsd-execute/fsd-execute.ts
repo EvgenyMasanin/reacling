@@ -1,9 +1,8 @@
 import { Folder } from 'scripts/constants'
 import { cli } from 'scripts/utils/cli'
 import { mkdirIfNotExist } from 'scripts/utils/file-system'
+import { type CommandConfig, type InputParameters } from '../types'
 import { commands } from './commands'
-import { handleFail } from './errors'
-import { type CommandConfig, type InputParameters } from './types'
 
 function addCommand({
   command,
@@ -23,10 +22,8 @@ function addCommand({
   return addCommand
 }
 
-export function yargsFsdExecute(): void {
+export function fsdExecute(): void {
   mkdirIfNotExist('.', Folder.src)
-
-  cli.yargs.fail(handleFail)
 
   commands.forEach(addCommand)
 }

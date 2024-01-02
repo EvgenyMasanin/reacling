@@ -1,5 +1,4 @@
 import boxen, { type Options } from 'boxen'
-import { type WriteHelp } from 'scripts/types'
 import { config } from '../config'
 
 const boxenConfig = (title: string): Options => ({
@@ -40,7 +39,7 @@ export const FSD_REACT_COMMANDS = boxen(
 //   Generate a store: store
 //   `
 
-export const writeHelp: WriteHelp = () => {
+export const writeHelp = () => {
   switch (config.methodology) {
     case 'common':
       console.log(REACT_COMMANDS)

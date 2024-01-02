@@ -10,6 +10,7 @@ import {
 } from 'scripts/utils/file-system'
 import { logger } from 'scripts/utils/loggers'
 import { isFileExist } from 'scripts/utils/predicates'
+import { toCamelCase } from 'scripts/utils/strings'
 import { generateHookContent } from '../content-generators'
 
 export const generateHook: GenerateHook = (hookName: string, path?: string) => {
@@ -22,7 +23,7 @@ export const generateHook: GenerateHook = (hookName: string, path?: string) => {
     return
   }
 
-  const content = generateHookContent(hookName)
+  const content = generateHookContent(toCamelCase(hookName))
 
   createFile(path ?? directoryPath, `${hookName}.ts`, content)
   appendToIndex(path ?? directoryPath, hookName)

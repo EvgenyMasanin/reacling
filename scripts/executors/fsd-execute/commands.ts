@@ -15,7 +15,7 @@ import {
   FsdCommandAlias,
   Parameter,
   type CommandConfig
-} from './types'
+} from '../types'
 
 const addEntityConfig: CommandConfig = {
   command: FsdCommand.entity,

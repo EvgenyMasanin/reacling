@@ -23,8 +23,6 @@ export interface ReaclingConfig {
   }
 }
 
-export type WriteHelp = () => void
-
 export type GeneratePage = (pageName: string) => void
 export type GenerateFeature = (featureName: string) => void
 export type GenerateHook = (hookName: string, path?: string) => void
@@ -39,7 +37,6 @@ export type GenerateFeatureHook = (
 ) => void
 
 export type Handler =
-  | WriteHelp
   | GeneratePage
   | GenerateHook
   | GenerateFeature

@@ -1,6 +1,4 @@
-import { cli } from 'scripts/utils/cli'
-import { logger } from 'scripts/utils/loggers'
-import { type MissingFsdArgumentError } from './types'
+import { type MissingArgumentError } from '../executors/types'
 
 const MISSING_ARGUMENT = 'Missing argument'
 
@@ -26,18 +24,13 @@ const ErrorHandler = {
 
   page: () => MISSING_NAME('page'),
   widget: () => MISSING_NAME('widget'),
-  shearedUI: () => MISSING_COMPONENT_NAME
+  shearedUI: () => MISSING_COMPONENT_NAME,
+
+  component: () => MISSING_NAME('component'),
+  hook: () => MISSING_NAME('hook')
 }
 
-export const handleFail = (message: string) => {
-  const command = cli.inputCommand
-  const missingCommandsCount = +message.match(/\d/)[0]
-  logger.addErrorLog(missingArgumentError[command](missingCommandsCount))
-
-  throw new Error()
-}
-
-export const missingArgumentError: MissingFsdArgumentError = {
+export const missingArgumentError: MissingArgumentError = {
   e: ErrorHandler.entity,
   eu: ErrorHandler.entityUI,
   entity: ErrorHandler.entity,
@@ -46,10 +39,14 @@ export const missingArgumentError: MissingFsdArgumentError = {
   fu: ErrorHandler.featureUI,
   feature: ErrorHandler.feature,
   'feature-ui': ErrorHandler.featureUI,
-  p: ErrorHandler.page,
-  page: ErrorHandler.page,
   w: ErrorHandler.widget,
   widget: ErrorHandler.widget,
   su: ErrorHandler.shearedUI,
-  'sheared-ui': ErrorHandler.shearedUI
+  'sheared-ui': ErrorHandler.shearedUI,
+  p: ErrorHandler.page,
+  page: ErrorHandler.page,
+  c: ErrorHandler.component,
+  component: ErrorHandler.component,
+  h: ErrorHandler.hook,
+  hook: ErrorHandler.hook
 }

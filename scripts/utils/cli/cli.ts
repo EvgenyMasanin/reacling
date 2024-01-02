@@ -1,4 +1,4 @@
-import { type AvailableFsdCommands } from 'scripts/executors/yargs-fsd-execute/types'
+import { type AvailableFsdCommands } from 'scripts/executors/types'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
