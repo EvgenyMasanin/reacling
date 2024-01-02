@@ -1,13 +1,11 @@
 import { mkdirSync } from 'fs'
 import { join } from 'path'
 import { Folder, INDEX } from 'scripts/constants'
-import { type GenerateFeature } from 'scripts/types'
-import { createFile, mkdirIfNotExist } from 'scripts/utils/file-system'
-import { logger } from 'scripts/utils/loggers'
-import { isDirExist } from 'scripts/utils/predicates'
+import { createFile, isDirExist, mkdirIfNotExist } from 'utils/file-system'
+import { logger } from 'utils/loggers'
 import { generateFeatureIndexContent } from '../content-generators'
 
-export const generateFeature: GenerateFeature = (featureName) => {
+export const generateFeature = (featureName: string) => {
   mkdirIfNotExist(Folder.src, Folder.features)
 
   const featureDirPath = join(

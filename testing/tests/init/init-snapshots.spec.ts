@@ -1,9 +1,9 @@
 import { mkdirSync } from 'fs'
 import { Folder } from 'scripts/constants'
-import { removeDir } from 'scripts/utils/file-system/remove-dir'
 import { initCommands } from 'testing/commands'
 import { type Command } from 'testing/commands/types'
 import { equalConsoleOutput } from 'testing/utils/equal-console-output'
+import { removeDir } from 'utils/file-system'
 
 describe('init snapshots', () => {
   const equalConsoleInitOutput = (commands: Command) => {

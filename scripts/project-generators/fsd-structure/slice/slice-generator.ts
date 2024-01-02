@@ -1,7 +1,6 @@
 import { Folder } from 'scripts/constants'
-import { mkdirIfNotExist } from 'scripts/utils/file-system'
-import { logger } from 'scripts/utils/loggers'
-import { isDirExist } from 'scripts/utils/predicates'
+import { isDirExist, mkdirIfNotExist } from 'utils/file-system'
+import { logger } from 'utils/loggers'
 
 import {
   createLib,
@@ -10,7 +9,7 @@ import {
   getLayerPath
 } from './helpers'
 
-import { config } from 'scripts/utils/config'
+import { config } from 'scripts/services/config'
 import type { Layer, SliceConfig } from './types'
 
 const defaultConfig: SliceConfig = {

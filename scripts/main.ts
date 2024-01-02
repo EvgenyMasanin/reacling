@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+import { logger } from '../utils/loggers'
 import { handleFail } from './errors'
 import { fsdExecute } from './executors/fsd-execute'
 import { simpleExecute } from './executors/simple-execute.ts/simple-execute'
@@ -7,9 +7,8 @@ import {
   allAvailableCommands,
   type AllAvailableCommands
 } from './executors/types'
-import { cli } from './utils/cli'
-import { config } from './utils/config'
-import { logger, writeHelp } from './utils/loggers'
+import { cli } from './services/cli'
+import { config } from './services/config'
 
 // import { generateStore } from './utils/redux-generators'
 
@@ -20,7 +19,7 @@ function start() {
   }
 
   if (process.argv[2] === '--help') {
-    writeHelp()
+    logger.writeHelp(config.methodology)
     return
   }
 

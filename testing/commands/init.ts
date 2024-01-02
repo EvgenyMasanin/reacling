@@ -1,6 +1,4 @@
-import { type Commands } from './types'
-
-export const initCommands: Commands = [
+export const initCommands = [
   {
     command: 'init',
     snapshotFileName: 'init'
@@ -9,4 +7,4 @@ export const initCommands: Commands = [
     command: 'init',
     snapshotFileName: 'only-src'
   }
-]
+] as const

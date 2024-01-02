@@ -1,6 +1,4 @@
-import { type Commands } from './types'
-
-export const pageCommands: Commands = [
+export const pageCommands = [
   {
     command: 'p profile',
     snapshotFileName: 'new-page'
@@ -13,4 +11,4 @@ export const pageCommands: Commands = [
     command: 'p',
     snapshotFileName: 'missing-page-name'
   }
-]
+] as const

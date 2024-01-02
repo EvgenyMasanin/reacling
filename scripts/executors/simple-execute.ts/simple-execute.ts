@@ -1,6 +1,6 @@
 import { Folder } from 'scripts/constants'
-import { cli } from 'scripts/utils/cli'
-import { mkdirIfNotExist } from 'scripts/utils/file-system'
+import { cli } from 'scripts/services/cli'
+import { mkdirIfNotExist } from 'utils/file-system'
 import { type CommandConfig, type InputParameters } from '../types'
 import { commands } from './commands'
 

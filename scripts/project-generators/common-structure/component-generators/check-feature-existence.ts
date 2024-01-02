@@ -1,6 +1,6 @@
-import { question } from 'scripts/utils/dialog'
-import { isDirExist } from 'scripts/utils/predicates'
+import { question } from 'scripts/services/dialog'
 import { generateFeature } from './generate-feature'
+import { isDirExist } from 'utils/file-system'
 
 // TODO: add this to entity
 export const checkFeatureExistence = (

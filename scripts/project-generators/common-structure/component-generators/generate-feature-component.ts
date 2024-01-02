@@ -1,15 +1,13 @@
 import { join } from 'path'
 import { Folder } from 'scripts/constants'
-import { type GenerateFeatureComponent } from 'scripts/types'
-import { appendToIndex } from 'scripts/utils/file-system'
-import { logger } from 'scripts/utils/loggers'
-import { isDirExist } from 'scripts/utils/predicates'
+import { appendToIndex, isDirExist } from 'utils/file-system'
+import { logger } from 'utils/loggers'
 import { checkFeatureExistence } from './check-feature-existence'
 import { generateComponent } from './generate-component'
 
-export const generateFeatureComponent: GenerateFeatureComponent = (
-  featureName,
-  componentName
+export const generateFeatureComponent = (
+  featureName: string,
+  componentName: string
 ) => {
   const featureComponentsDirPath = join(
     Folder.src,

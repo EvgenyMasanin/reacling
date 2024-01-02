@@ -2,18 +2,12 @@ import { join } from 'path'
 
 import { Folder } from 'scripts/constants'
 
-import { type GenerateHook } from 'scripts/types'
-import {
-  appendToIndex,
-  createFile,
-  mkdirIfNotExist
-} from 'scripts/utils/file-system'
-import { logger } from 'scripts/utils/loggers'
-import { isFileExist } from 'scripts/utils/predicates'
-import { toCamelCase } from 'scripts/utils/strings'
+import { appendToIndex, createFile, isFileExist, mkdirIfNotExist } from 'utils/file-system'
+import { logger } from 'utils/loggers'
+import { toCamelCase } from 'utils/strings'
 import { generateHookContent } from '../content-generators'
 
-export const generateHook: GenerateHook = (hookName: string, path?: string) => {
+export const generateHook = (hookName: string, path?: string) => {
   mkdirIfNotExist(Folder.src, Folder.hooks)
 
   const directoryPath = join(Folder.src, Folder.hooks)

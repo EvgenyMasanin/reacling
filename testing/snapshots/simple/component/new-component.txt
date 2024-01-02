@@ -1,0 +1,5 @@
+ Success: 
+  Folder created: src/components.
+  File created: src/components/header/header.tsx.
+  File created: src/components/header/index.ts.
+

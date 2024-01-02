@@ -5,8 +5,8 @@ import {
   createComponentFiles,
   isDirExist,
   mkdirIfNotExist
-} from 'scripts/utils/file-system'
-import { logger } from 'scripts/utils/loggers'
+} from 'utils/file-system'
+import { logger } from 'utils/loggers'
 import { getLayerPath } from './helpers'
 import type { Layer } from './types'
 

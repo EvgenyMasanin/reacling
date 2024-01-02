@@ -1,6 +1,4 @@
-import { type Commands } from './types'
-
-export const widgetCommands: Commands = [
+export const widgetCommands = [
   {
     command: 'w profile',
     snapshotFileName: 'new-widget'
@@ -13,4 +11,4 @@ export const widgetCommands: Commands = [
     command: 'w',
     snapshotFileName: 'missing-widget-name'
   }
-]
+] as const

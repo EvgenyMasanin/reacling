@@ -1,6 +1,6 @@
 import { join } from 'path'
 import { Folder } from 'scripts/constants'
-import { appendToIndex, createComponentFiles } from 'scripts/utils/file-system'
+import { appendToIndex, createComponentFiles } from 'utils/file-system'
 import { sliceGenerator } from './slice/slice-generator'
 
 export const pageGenerator = (name: string) => {

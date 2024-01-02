@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs'
-import { createFile } from './create-file'
 import { join } from 'path'
+import { createFile } from './create-file'
 
 export const createFileIfNotExist = (
   directory: string,

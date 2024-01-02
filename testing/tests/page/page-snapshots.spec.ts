@@ -3,11 +3,10 @@ import { type Command } from 'testing/commands/types'
 import { equalConsoleOutput } from 'testing/utils/equal-console-output'
 import { manageSrc } from 'testing/utils/manage-src'
 
-describe('page snapshots', () => {
+describe('"fsd" page snapshots', () => {
   const equalConsoleInitOutput = (commands: Command) => {
     equalConsoleOutput('page', commands)
   }
-
   manageSrc()
 
   it('new page', () => {

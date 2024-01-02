@@ -1,5 +1,5 @@
-import { cli } from 'scripts/utils/cli'
-import { logger } from 'scripts/utils/loggers'
+import { cli } from 'scripts/services/cli'
+import { logger } from 'utils/loggers'
 import { missingArgumentError } from './errors'
 
 export const handleFail = (message: string) => {

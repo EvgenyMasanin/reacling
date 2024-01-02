@@ -1,12 +1,12 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import { Folder, INDEX } from 'scripts/constants'
-import { config } from 'scripts/utils/config'
+import { config } from 'scripts/services/config'
 import {
   createComponentFiles,
+  createFileIfNotExist,
   mkdirIfNotExist
-} from 'scripts/utils/file-system'
-import { createFileIfNotExist } from 'scripts/utils/file-system/create-file-if-not-exist'
+} from 'utils/file-system'
 
 const mkAppFolder = () => {
   const { withProviders } = config.getAppConfig()

@@ -1,7 +1,7 @@
 import { mkdirSync } from 'fs'
 import { join } from 'path'
 import { logger } from '../loggers'
-import { isDirExist } from '../predicates'
+import { isDirExist } from './is-dir-exist'
 
 export const mkdirIfNotExist = (root: string, dir: string) => {
   try {

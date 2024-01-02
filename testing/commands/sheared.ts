@@ -1,6 +1,4 @@
-import { type Commands } from './types'
-
-export const shearedCommands: Commands = [
+export const shearedCommands = [
   {
     command: 'su button',
     snapshotFileName: 'new-sheared'
@@ -13,4 +11,4 @@ export const shearedCommands: Commands = [
     command: 'su',
     snapshotFileName: 'missing-sheared-name'
   }
-]
+] as const

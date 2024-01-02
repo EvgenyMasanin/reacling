@@ -1,8 +1,10 @@
 import boxen from 'boxen'
 import chalk from 'chalk'
 import { Status } from 'scripts/constants'
+import { type Methodology } from 'scripts/services/config/types'
 import { capitalizeFirst } from '../strings'
 import { pathTransform } from '../strings/path-transform'
+import { writeHelp } from './write-help'
 
 export const isSuccess = (status: Status) => status === Status.success
 
@@ -70,6 +72,10 @@ class Logger {
     if (this.#commonLogs.length > 0) {
       console.log(this.#getLogs())
     }
+  }
+
+  writeHelp(methodology: Methodology) {
+    writeHelp(methodology)
   }
 
   #errorLog<T extends string>(content: T) {

@@ -1,0 +1,3 @@
+ Error: 
+  Missing argument: "hook-name"!
+

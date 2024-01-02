@@ -3,6 +3,7 @@ import { mkdirSync, writeFileSync } from 'fs'
 import { join } from 'path'
 import yargs, { type Argv } from 'yargs'
 import { normalizeConsoleOutput } from './normalize-string'
+import { readPackageJson } from './readPackageJson'
 
 interface InputArguments {
   folder: string
@@ -58,7 +59,7 @@ function generateSnapshot({
   const snapshotsFolderPath = join('testing', 'snapshots', folder)
 
   const consoleOutput = execSync(
-    `ts-node -r tsconfig-paths/register ./scripts/main.ts ${parameters}`
+    `${readPackageJson().scripts.reacling} ${parameters}`
   ).toString()
 
   try {

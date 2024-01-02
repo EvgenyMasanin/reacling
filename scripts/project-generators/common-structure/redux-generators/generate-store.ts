@@ -5,8 +5,8 @@ import { Folder, INDEX, STORE_FOLDER_PATH } from 'scripts/constants'
 import { REDUX_STORE, ROOT_REDUCER } from 'scripts/templates'
 import { REDUX_HOOKS } from 'scripts/templates/redux-hooks.template'
 import { USE_ACTIONS_HOOK } from 'scripts/templates/useActions-hook.template'
-import { createFile, isDirExist } from 'scripts/utils/file-system'
-import { logger } from 'scripts/utils/loggers'
+import { createFile, isDirExist } from 'utils/file-system'
+import { logger } from 'utils/loggers'
 
 export const generateStore = () => {
   if (isDirExist(STORE_FOLDER_PATH)) {
