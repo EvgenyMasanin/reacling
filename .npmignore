@@ -7,13 +7,15 @@
 /src
 /scripts
 /assets
+/testing
+/utils
 /.cache
 /.parcel-cache
 /.vscode
-/.assets
 
 .gitignore
 .parcelrc
 .prettierrc
 .eslintrc
 tsconfig.json
+jest.config.ts

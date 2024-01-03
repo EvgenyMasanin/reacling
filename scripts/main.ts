@@ -1,5 +1,7 @@
 #!/usr/bin/env node
+import { mkdirIfNotExist } from 'utils/file-system'
 import { logger } from '../utils/loggers'
+import { Folder } from './constants'
 import { handleFail } from './errors'
 import { fsdExecute } from './executors/fsd-execute'
 import { simpleExecute } from './executors/simple-execute.ts/simple-execute'
@@ -35,6 +37,8 @@ function start() {
         logger.addUnknownCommandLog(inputCommand)
         throw new Error()
       }
+
+      mkdirIfNotExist('.', Folder.src)
     })
     .fail(handleFail)
 
