@@ -1,3 +1,0 @@
- Error: 
-  header component is already exist!
-

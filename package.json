@@ -2,16 +2,21 @@
   "name": "reacling",
   "version": "1.0.7",
   "description": "cli utility for generating react project structure",
+  "keywords": [
+    "react",
+    "cli",
+    "fsd"
+  ],
   "repository": "https://github.com/EvgenyMasanin/reacli.git",
   "scripts": {
     "reacling": "ts-node -r tsconfig-paths/register ./scripts/main.ts",
+    "prod:reacling": "node main",
     "watch": "parcel watch",
     "build": "parcel build",
     "prod-reacling": "node ./main",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives",
     "g-all-snapshots": "ts-node -r tsconfig-paths/register testing/utils/generate-all-snapshots",
     "snapshot": "ts-node -r tsconfig-paths/register testing/utils/generate-snapshot.ts",
-
     "test": "jest --runInBand",
     "e-test": "jest testing/tests/entity/entity-snapshots.spec.ts",
     "i-test": "jest testing/tests/init/init-snapshots.spec.ts",
@@ -24,8 +29,8 @@
   "dependencies": {
     "boxen": "5.1.2",
     "chalk": "4.1.2",
-    "prompt-sync": "^4.2.0",
-    "yargs": "^17.7.2"
+    "yargs": "^17.7.2",
+    "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.6",
@@ -33,6 +38,7 @@
     "@parcel/transformer-typescript-tsc": "^2.10.2",
     "@parcel/transformer-typescript-types": "2.10.2",
     "@parcel/validator-typescript": "^2.10.2",
+    "@types/inquirer": "^9.0.7",
     "@types/jest": "^29.5.11",
     "@types/module-alias": "^2.0.4",
     "@types/node": "^18.0.6",
@@ -52,6 +58,7 @@
     "path-browserify": "^1.0.0",
     "prettier": "^3.0.3",
     "process": "^0.11.10",
+    "prompt-sync": "^4.2.0",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
@@ -64,5 +71,6 @@
     "main": {
       "context": "node"
     }
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }

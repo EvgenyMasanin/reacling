@@ -1,5 +1,0 @@
- Success: 
-  Folder created: src/hooks.
-  File created: src/hooks/use-header.ts.
-  File updated: src/hooks/index.ts.
-

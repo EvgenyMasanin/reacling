@@ -1,14 +1,10 @@
-import chalk from 'chalk'
 import { execSync } from 'child_process'
 import { readPackageJson } from '../readPackageJson'
+import { progress } from './progress'
 
-export const execSnapshot = (params: string) => {
-  console.log(
-    chalk.blue(
-      `🚀Snapshot "${params.split(' ').slice(0, 2).join(' ')}" is saved.`
-    )
-  )
+export const execSnapshot = (params: string, progressStep?: number) => {
   const script = readPackageJson().scripts.snapshot
 
   execSync(`${script} g ${params}`)
+  progress.increaseProgressAndShow(progressStep)
 }

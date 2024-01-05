@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { mkdirIfNotExist } from 'utils/file-system'
-import { logger } from '../utils/loggers'
+import { logger } from 'utils/loggers'
 import { Folder } from './constants'
 import { handleFail } from './errors'
 import { fsdExecute } from './executors/fsd-execute'
@@ -11,6 +11,7 @@ import {
 } from './executors/types'
 import { cli } from './services/cli'
 import { config } from './services/config'
+import { dialog as getConfigDialog } from './services/dialog'
 
 // import { generateStore } from './utils/redux-generators'
 
@@ -37,10 +38,18 @@ function start() {
         logger.addUnknownCommandLog(inputCommand)
         throw new Error()
       }
-
+      if (inputCommand === 'config') return
+      if (!inputCommand.length) return
       mkdirIfNotExist('.', Folder.src)
     })
     .fail(handleFail)
+    .command({
+      command: 'config',
+      describe: 'Use to generate config.json',
+      handler: () => {
+        config.overwriteConfig(getConfigDialog())
+      }
+    })
 
   methodology[config.methodology]()
 

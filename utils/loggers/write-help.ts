@@ -12,6 +12,7 @@ const REACT_COMMANDS = boxen(
   Generate a component:              c  'component name' 
   Generate a page:                   p  'page name' 
   Generate a hook:                   h  'hook name' 
+  Generate a config file:            config
   Get help:                          --help 
   `,
   boxenConfig('React commands')
@@ -26,7 +27,8 @@ export const FSD_REACT_COMMANDS = boxen(
   Generate a feature:                f    'feature name' 
   Generate a component for sheared:  su   'component name'
   Generate a component for entity:   eu   'entity name' 'component name' 
-  Generate a component for feature:  fu   'feature name' 'component name' 
+  Generate a component for feature:  fu   'feature name' 'component name'
+  Generate a config file:            config 
   Get help:                          --help 
   `,
   boxenConfig('FSD react commands')

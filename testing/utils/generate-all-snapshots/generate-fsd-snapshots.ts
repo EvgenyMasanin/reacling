@@ -12,6 +12,7 @@ import { removeDir } from 'utils/file-system'
 import { joinStrings } from 'utils/strings/join-strings'
 import { execCommands } from './exec-commands'
 import { execSnapshot } from './exec-snapshot'
+import { progressPercents } from './progress-percents'
 import { type Options } from './types'
 
 export const generateFsdSnapshots = (options: Options) => {
@@ -21,39 +22,47 @@ export const generateFsdSnapshots = (options: Options) => {
     methodology === 'all' ||
     (!entity && !feature && !init && !page && !sheared && !widget)
 
+  const progressStep = progressPercents[methodology]
+
   // ---------init-------------------------------------------------------
   if (generateAll || init) {
     const [init, onlySrc] = initCommands
-    execSnapshot(joinStrings('init', init.snapshotFileName, init.command))
+    execSnapshot(
+      joinStrings('init', init.snapshotFileName, init.command),
+      progressStep
+    )
 
     removeDir(Folder.src)
     mkdirSync(Folder.src)
 
-    execSnapshot(joinStrings('init', onlySrc.snapshotFileName, onlySrc.command))
+    execSnapshot(
+      joinStrings('init', onlySrc.snapshotFileName, onlySrc.command),
+      progressStep
+    )
   }
 
   // ---------entity-----------------------------------------------------
   if (generateAll || entity) {
-    execCommands('entity', entityCommands)
+    execCommands('entity', entityCommands, progressStep)
   }
 
   // ---------feature-----------------------------------------------------
   if (generateAll || feature) {
-    execCommands('feature', featureCommands)
+    execCommands('feature', featureCommands, progressStep)
   }
 
   // ---------page--------------------------------------------------------
   if (generateAll || page) {
-    execCommands('page', pageCommands)
+    execCommands('page', pageCommands, progressStep)
   }
 
   // ---------sheared-----------------------------------------------------
   if (generateAll || sheared) {
-    execCommands('sheared', shearedCommands)
+    execCommands('sheared', shearedCommands, progressStep)
   }
 
   // ---------widgets-----------------------------------------------------
   if (generateAll || widget) {
-    execCommands('widget', widgetCommands)
+    execCommands('widget', widgetCommands, progressStep)
   }
 }

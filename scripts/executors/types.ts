@@ -56,23 +56,24 @@ export enum FsdCommandAlias {
 export const availableSimpleCommands = [
   ...Object.values(SimpleCommand),
   ...Object.values(SimpleCommandAlias)
-]
+] as const
 
 export const availableFsdCommands = [
   ...Object.values(FsdCommand),
   ...Object.values(FsdCommandAlias)
-]
+] as const
 
 export const allAvailableCommands = [
   ...Object.values(availableFsdCommands),
-  ...Object.values(availableSimpleCommands)
-]
+  ...Object.values(availableSimpleCommands),
+  'config'
+] as const
 
 export type AvailableFsdCommands = (typeof availableFsdCommands)[number]
 
 export type AllAvailableCommands = (typeof allAvailableCommands)[number]
 
 export type MissingArgumentError = Record<
-  Exclude<AllAvailableCommands, 'init'>,
+  Exclude<AllAvailableCommands, 'init' | 'config'>,
   (argumentCount: number) => string
 >

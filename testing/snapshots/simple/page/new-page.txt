@@ -1,5 +1,14 @@
  Success: 
   Folder created: src/pages.
-  File created: src/pages/profile.tsx.
-  File created: src/pages/index.ts.
+  Folder created: src/pages/profile.
+  Folder created: src/pages/profile/ui.
+  File created: src/pages/profile/ui/index.ts.
+  Folder created: src/pages/profile/lib.
+  Folder created: src/pages/profile/lib/hooks.
+  Folder created: src/pages/profile/lib/helpers.
+  File created: src/pages/profile/lib/hooks/index.ts.
+  File created: src/pages/profile/lib/helpers/index.ts.
+  File created: src/pages/profile/ui/profile.tsx.
+  File created: src/pages/profile/ui/index.ts.
+  File updated: src/pages/index.ts.
 

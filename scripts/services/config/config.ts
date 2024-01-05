@@ -4,6 +4,7 @@ import { REACLING_CONFIG } from 'scripts/constants'
 import type { Layer } from 'scripts/project-generators/fsd-structure/slice/types'
 import { deepMerge } from 'utils/deep-merge'
 import { goUpFolder } from 'utils/file-system/go-up-folder'
+import { defaultConfig } from './default.config'
 import type { Methodology, ReaclingConfig, SliceStructure } from './types'
 
 export class Config {
@@ -15,7 +16,7 @@ export class Config {
     try {
       userConfig = this.userConfig
     } catch (error) {
-      userConfig = this.innerConfig
+      userConfig = this.defaultConfig
     }
 
     this.#config = deepMerge(this.#config ?? {}, userConfig) as ReaclingConfig
@@ -31,6 +32,10 @@ export class Config {
 
   get innerConfig() {
     return this.#readConfig(join(__dirname, goUpFolder(3), REACLING_CONFIG))
+  }
+
+  get defaultConfig() {
+    return defaultConfig
   }
 
   changeMethodology(methodology: Methodology) {

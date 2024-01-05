@@ -8,10 +8,7 @@ export const widgetGenerator = (name: string) => {
   const widgetPath = join(widgetFolderPath, name)
   const widgetUiPath = join(widgetPath, Folder.ui)
 
-  const result = sliceGenerator(Folder.widgets, name, {
-    withApi: false,
-    withModel: false
-  })
+  const result = sliceGenerator(Folder.widgets, name)
 
   if (!result) {
     return

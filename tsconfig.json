@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "module": "CommonJS",
+    "target": "es2017",
     "esModuleInterop": true,
     "moduleResolution": "node",
     "declaration": true,
@@ -8,7 +9,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
     "incremental": true,

@@ -7,10 +7,3 @@ export type Layer =
   | Folder.features
   | Folder.entities
   | Folder.sheared
-
-export interface SliceConfig {
-  withUi?: boolean
-  withApi?: boolean
-  withLib?: boolean
-  withModel?: boolean
-}

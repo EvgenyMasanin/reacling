@@ -1,3 +1,0 @@
- Error: 
-  Missing argument: "component-name"!
-

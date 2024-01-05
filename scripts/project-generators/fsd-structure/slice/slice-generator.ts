@@ -10,19 +10,11 @@ import {
 } from './helpers'
 
 import { config } from 'scripts/services/config'
-import type { Layer, SliceConfig } from './types'
-
-const defaultConfig: SliceConfig = {
-  withUi: true,
-  withApi: true,
-  withLib: true,
-  withModel: true
-}
+import type { Layer } from './types'
 
 export const sliceGenerator = (
   layer: Layer,
-  sliceName: string,
-  _config: SliceConfig = defaultConfig
+  sliceName: string
 ) => {
   const layerFolderPath = getLayerFolderPath(layer)
   const layerPath = getLayerPath(layer, sliceName)

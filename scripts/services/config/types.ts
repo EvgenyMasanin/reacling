@@ -12,7 +12,7 @@ export type Methodology = 'common' | 'fsd'
 
 export interface ReaclingConfig {
   methodology?: Methodology
-  fsdStructure: {
+  fsdStructure?: {
     app?: {
       withProviders?: boolean
     }

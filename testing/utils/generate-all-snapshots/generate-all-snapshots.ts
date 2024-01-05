@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
-import chalk from 'chalk'
 import { Folder } from 'scripts/constants'
 import { cli } from 'scripts/services/cli'
 import { removeDir } from 'utils/file-system'
 import { generateFsdSnapshots } from './generate-fsd-snapshots'
 import { generateSimpleSnapshots } from './generate-simple-snapshots'
 import { generateOptions } from './get-options'
+import { progress } from './progress'
 import { writeParamsError } from './write-params-error'
 
 const removeSrc = () => {
@@ -25,8 +25,7 @@ export const generateAllSnapshots = () => {
     writeParamsError()
     return
   }
-
-  console.log(chalk.blue('🚀Starting...'))
+  progress.writeToConsole()
 
   removeSrc()
 
@@ -39,5 +38,6 @@ export const generateAllSnapshots = () => {
   }
 
   removeDir(Folder.src)
-  console.log(chalk.blue('🚀Finished!🚀'))
+  
+  progress.finish()
 }

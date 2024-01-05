@@ -2,6 +2,7 @@ import boxen from 'boxen'
 import chalk from 'chalk'
 import { Status } from 'scripts/constants'
 import { type Methodology } from 'scripts/services/config/types'
+import { toSingular } from 'utils/strings/to-singular'
 import { capitalizeFirst } from '../strings'
 import { pathTransform } from '../strings/path-transform'
 import { writeHelp } from './write-help'
@@ -39,7 +40,7 @@ class Logger {
   addAlreadyExistLog(name: string, message: string = '') {
     this.addLog(
       Status.error,
-      `${chalk.underline.italic(name)} ${message} is already exist!`
+      `${chalk.underline.italic(name)} ${toSingular(message)} is already exist!`
     )
   }
 
