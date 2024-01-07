@@ -8,7 +8,7 @@ It is a cli utility that generates various parts of your React project such as c
 
 ```bash
 # Command example
-$ yarn reacling c 'component name'
+$ yarn reacling c <component name>
 
 # Options:
  --help  Show available commands
