@@ -86,7 +86,7 @@ type Methodology = 'common' | 'fsd'
 
 interface ReaclingConfig {
   methodology?: Methodology
-  fsdStructure: {
+  fsdStructure?: {
     app?: {
       withProviders?: boolean
     }
