@@ -10,6 +10,9 @@ import type { Methodology, ReaclingConfig, SliceStructure } from './types'
 export class Config {
   readonly #config: ReaclingConfig
 
+  readonly #userConfigPath = join(__dirname, goUpFolder(5), REACLING_CONFIG)
+  readonly #innerConfigPath = join(__dirname, goUpFolder(3), REACLING_CONFIG)
+
   constructor() {
     let userConfig: ReaclingConfig
 
@@ -27,11 +30,11 @@ export class Config {
   }
 
   get userConfig() {
-    return this.#readConfig(join(__dirname, goUpFolder(5), REACLING_CONFIG))
+    return this.#readConfig(this.#userConfigPath)
   }
 
   get innerConfig() {
-    return this.#readConfig(join(__dirname, goUpFolder(3), REACLING_CONFIG))
+    return this.#readConfig(this.#innerConfigPath)
   }
 
   get defaultConfig() {
@@ -42,14 +45,15 @@ export class Config {
     const innerConfig = this.innerConfig
     innerConfig.methodology = methodology
 
-    this.overwriteConfig(innerConfig)
+    this.overwriteInnerConfig(innerConfig)
   }
 
-  overwriteConfig(newConfig: ReaclingConfig) {
-    writeFileSync(
-      join(__dirname, goUpFolder(3), REACLING_CONFIG),
-      JSON.stringify(newConfig, null, 2)
-    )
+  overwriteInnerConfig(newConfig: ReaclingConfig) {
+    writeFileSync(this.#innerConfigPath, JSON.stringify(newConfig, null, 2))
+  }
+
+  overwriteUserConfig(newConfig: ReaclingConfig) {
+    writeFileSync(this.#userConfigPath, JSON.stringify(newConfig, null, 2))
   }
 
   get methodology() {

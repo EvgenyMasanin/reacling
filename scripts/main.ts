@@ -47,7 +47,7 @@ function start() {
       command: 'config',
       describe: 'Use to generate config.json',
       handler: () => {
-        config.overwriteConfig(getConfigDialog())
+        config.overwriteUserConfig(getConfigDialog())
       }
     })
 
