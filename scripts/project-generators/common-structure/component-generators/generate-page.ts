@@ -1,6 +1,11 @@
 import { readdirSync } from 'fs'
 import { Folder, INDEX, PAGE_FOLDER_PATH } from 'scripts/constants'
-import { appendToIndex, createFile, isFileExist, mkdirIfNotExist } from 'utils/file-system'
+import {
+  appendToIndex,
+  createFile,
+  isFileExist,
+  mkdirIfNotExist
+} from 'utils/file-system'
 import { logger } from 'utils/loggers'
 import { generatePageContent } from '../content-generators'
 

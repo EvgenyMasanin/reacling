@@ -50,7 +50,7 @@ function start() {
         config.overwriteUserConfig(getConfigDialog())
       }
     })
-
+logger.addErrorLog(config.methodology)
   methodology[config.methodology]()
 
   cli.yargs.parseSync()
