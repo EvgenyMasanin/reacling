@@ -6,11 +6,11 @@ import { handleFail } from './errors'
 import { Folder } from './constants'
 import { cli } from './services/cli'
 import { config } from './services/config'
+import { allAvailableCommands } from './executors/types'
 import { fsdExecute } from './executors/fsd-execute'
 import { dialog as getConfigDialog } from './services/dialog'
 import { simpleExecute } from './executors/simple-execute.ts/simple-execute'
 
-import { allAvailableCommands } from './executors/types'
 import type { AllAvailableCommands } from './executors/types'
 // import { generateStore } from './utils/redux-generators'
 
