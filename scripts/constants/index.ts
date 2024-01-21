@@ -12,7 +12,7 @@ export enum Folder {
   widgets = 'widgets',
   features = 'features',
   entities = 'entities',
-  sheared = 'sheared',
+  shared = 'shared',
   providers = 'providers',
 
   ui = 'ui',

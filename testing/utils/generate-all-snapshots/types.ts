@@ -4,7 +4,7 @@ export interface Options {
   entity: boolean
   widget: boolean
   feature: boolean
-  sheared: boolean
+  shared: boolean
   component: boolean
   hook: boolean
   methodology: string

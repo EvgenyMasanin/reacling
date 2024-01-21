@@ -6,4 +6,4 @@ export type Layer =
   | Folder.widgets
   | Folder.features
   | Folder.entities
-  | Folder.sheared
+  | Folder.shared

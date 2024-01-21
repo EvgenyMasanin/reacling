@@ -1,10 +1,13 @@
-import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
-import { REACLING_CONFIG } from 'scripts/constants'
-import type { Layer } from 'scripts/project-generators/fsd-structure/slice/types'
+import { readFileSync, writeFileSync } from 'fs'
 import { deepMerge } from 'utils/deep-merge'
 import { goUpFolder } from 'utils/file-system/go-up-folder'
+
+import { REACLING_CONFIG } from 'scripts/constants'
+
 import { defaultConfig } from './default.config'
+
+import type { Layer } from 'scripts/project-generators/fsd-structure/slice/types'
 import type { Methodology, ReaclingConfig, SliceStructure } from './types'
 // FIXME: inner vs default configs
 export class Config {
@@ -23,7 +26,6 @@ export class Config {
     }
 
     this.#config = deepMerge(this.#config ?? {}, userConfig) as ReaclingConfig
-    console.log('🚀 ~ constructor ~ userConfig:', userConfig)
   }
 
   #readConfig(path: string) {
@@ -43,7 +45,7 @@ export class Config {
   }
 
   changeMethodology(methodology: Methodology) {
-    const innerConfig = this.innerConfig
+    const innerConfig = this.defaultConfig
     innerConfig.methodology = methodology
 
     this.overwriteInnerConfig(innerConfig)

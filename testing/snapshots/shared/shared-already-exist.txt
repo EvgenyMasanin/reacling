@@ -1,0 +1,3 @@
+ Error: 
+  button component of  shared is already exist!
+

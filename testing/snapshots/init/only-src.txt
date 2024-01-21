@@ -3,13 +3,13 @@
   Folder created: src/app/providers.
   File created: src/app/app.tsx.
   File created: src/app/index.ts.
-  Folder created: src/sheared.
-  Folder created: src/sheared/ui.
-  Folder created: src/sheared/assets.
-  Folder created: src/sheared/lib.
-  Folder created: src/sheared/api.
-  Folder created: src/sheared/config.
-  Folder created: src/sheared/types.
+  Folder created: src/shared.
+  Folder created: src/shared/ui.
+  Folder created: src/shared/assets.
+  Folder created: src/shared/lib.
+  Folder created: src/shared/api.
+  Folder created: src/shared/config.
+  Folder created: src/shared/types.
   Folder created: src/pages.
   File created: src/pages/index.ts.
   Folder created: src/widgets.

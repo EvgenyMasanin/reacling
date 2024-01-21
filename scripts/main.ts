@@ -1,18 +1,17 @@
 #!/usr/bin/env node
-import { mkdirIfNotExist } from 'utils/file-system'
 import { logger } from 'utils/loggers'
-import { Folder } from './constants'
+import { mkdirIfNotExist } from 'utils/file-system'
+
 import { handleFail } from './errors'
-import { fsdExecute } from './executors/fsd-execute'
-import { simpleExecute } from './executors/simple-execute.ts/simple-execute'
-import {
-  allAvailableCommands,
-  type AllAvailableCommands
-} from './executors/types'
+import { Folder } from './constants'
 import { cli } from './services/cli'
 import { config } from './services/config'
+import { fsdExecute } from './executors/fsd-execute'
 import { dialog as getConfigDialog } from './services/dialog'
+import { simpleExecute } from './executors/simple-execute.ts/simple-execute'
 
+import { allAvailableCommands } from './executors/types'
+import type { AllAvailableCommands } from './executors/types'
 // import { generateStore } from './utils/redux-generators'
 
 function start() {
@@ -50,7 +49,7 @@ function start() {
         config.overwriteUserConfig(getConfigDialog())
       }
     })
-logger.addErrorLog(config.methodology)
+
   methodology[config.methodology]()
 
   cli.yargs.parseSync()

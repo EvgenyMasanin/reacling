@@ -1,4 +1,4 @@
-import { type MissingArgumentError } from '../executors/types'
+import type { MissingArgumentError } from '../executors/types'
 
 const MISSING_ARGUMENT = 'Missing argument'
 
@@ -24,7 +24,7 @@ const ErrorHandler = {
 
   page: () => MISSING_NAME('page'),
   widget: () => MISSING_NAME('widget'),
-  shearedUI: () => MISSING_COMPONENT_NAME,
+  sharedUI: () => MISSING_COMPONENT_NAME,
 
   component: () => MISSING_NAME('component'),
   hook: () => MISSING_NAME('hook')
@@ -41,8 +41,8 @@ export const missingArgumentError: MissingArgumentError = {
   'feature-ui': ErrorHandler.featureUI,
   w: ErrorHandler.widget,
   widget: ErrorHandler.widget,
-  su: ErrorHandler.shearedUI,
-  'sheared-ui': ErrorHandler.shearedUI,
+  su: ErrorHandler.sharedUI,
+  'shared-ui': ErrorHandler.sharedUI,
   p: ErrorHandler.page,
   page: ErrorHandler.page,
   c: ErrorHandler.component,

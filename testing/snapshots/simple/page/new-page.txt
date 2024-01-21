@@ -10,5 +10,6 @@
   File created: src/pages/profile/lib/helpers/index.ts.
   File created: src/pages/profile/ui/profile.tsx.
   File created: src/pages/profile/ui/index.ts.
+  File created: src/pages/profile/index.ts.
   File updated: src/pages/index.ts.
 

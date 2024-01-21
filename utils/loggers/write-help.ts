@@ -1,5 +1,8 @@
-import boxen, { type Options } from 'boxen'
-import { type Methodology } from 'scripts/services/config/types'
+import boxen from 'boxen'
+
+import type { Methodology } from 'scripts/services/config/types'
+
+import type { Options } from 'boxen'
 
 const boxenConfig = (title: string): Options => ({
   title,
@@ -25,7 +28,7 @@ export const FSD_REACT_COMMANDS = boxen(
   Generate a widget:                 w    'widget name' 
   Generate a entity:                 e    'entity name' 
   Generate a feature:                f    'feature name' 
-  Generate a component for sheared:  su   'component name'
+  Generate a component for shared:   su   'component name'
   Generate a component for entity:   eu   'entity name' 'component name' 
   Generate a component for feature:  fu   'feature name' 'component name'
   Generate a config file:            config 

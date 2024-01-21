@@ -40,7 +40,7 @@ export enum FsdCommand {
   widget = 'w',
   entityUI = 'eu',
   featureUI = 'fu',
-  shearedUI = 'su'
+  sharedUI = 'su'
 }
 
 export enum FsdCommandAlias {
@@ -50,7 +50,7 @@ export enum FsdCommandAlias {
   widget = 'widget',
   entityUI = 'entity-ui',
   featureUI = 'feature-ui',
-  shearedUI = 'sheared-ui'
+  sharedUI = 'shared-ui'
 }
 
 export const availableSimpleCommands = [

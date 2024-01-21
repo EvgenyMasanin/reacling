@@ -1,0 +1,6 @@
+ Success: 
+  Folder created: src/shared/ui/button.
+  File created: src/shared/ui/button/button.tsx.
+  File created: src/shared/ui/button/index.ts.
+  File updated: src/shared/ui/index.ts.
+

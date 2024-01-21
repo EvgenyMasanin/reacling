@@ -1,12 +1,9 @@
-import { readFileSync } from 'fs'
 import { join } from 'path'
+import { readFileSync } from 'fs'
+import { createComponentFiles, createFileIfNotExist, mkdirIfNotExist } from 'utils/file-system'
+
 import { Folder, INDEX } from 'scripts/constants'
 import { config } from 'scripts/services/config'
-import {
-  createComponentFiles,
-  createFileIfNotExist,
-  mkdirIfNotExist
-} from 'utils/file-system'
 
 const mkAppFolder = () => {
   const { withProviders } = config.getAppConfig()
@@ -24,15 +21,15 @@ const mkAppFolder = () => {
 }
 
 const mkSharedFolder = () => {
-  const shearedFolderPath = join(Folder.src, Folder.sheared)
+  const sharedFolderPath = join(Folder.src, Folder.shared)
 
-  mkdirIfNotExist(Folder.src, Folder.sheared)
-  mkdirIfNotExist(shearedFolderPath, Folder.ui)
-  mkdirIfNotExist(shearedFolderPath, Folder.assets)
-  mkdirIfNotExist(shearedFolderPath, Folder.lib)
-  mkdirIfNotExist(shearedFolderPath, Folder.api)
-  mkdirIfNotExist(shearedFolderPath, Folder.config)
-  mkdirIfNotExist(shearedFolderPath, Folder.types)
+  mkdirIfNotExist(Folder.src, Folder.shared)
+  mkdirIfNotExist(sharedFolderPath, Folder.ui)
+  mkdirIfNotExist(sharedFolderPath, Folder.assets)
+  mkdirIfNotExist(sharedFolderPath, Folder.lib)
+  mkdirIfNotExist(sharedFolderPath, Folder.api)
+  mkdirIfNotExist(sharedFolderPath, Folder.config)
+  mkdirIfNotExist(sharedFolderPath, Folder.types)
 }
 
 const mkPagesFolder = () => {

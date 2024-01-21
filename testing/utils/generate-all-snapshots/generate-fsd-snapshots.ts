@@ -1,26 +1,28 @@
 import { mkdirSync } from 'fs'
-import { Folder } from 'scripts/constants'
 import {
   entityCommands,
   featureCommands,
   initCommands,
   pageCommands,
-  shearedCommands,
+  sharedCommands,
   widgetCommands
 } from 'testing/commands'
 import { removeDir } from 'utils/file-system'
 import { joinStrings } from 'utils/strings/join-strings'
+
+import { Folder } from 'scripts/constants'
+
 import { execCommands } from './exec-commands'
 import { execSnapshot } from './exec-snapshot'
 import { progressPercents } from './progress-percents'
-import { type Options } from './types'
 
+import type { Options } from './types'
 export const generateFsdSnapshots = (options: Options) => {
-  const { entity, feature, init, page, sheared, widget, methodology } = options
+  const { entity, feature, init, page, shared, widget, methodology } = options
 
   const generateAll =
     methodology === 'all' ||
-    (!entity && !feature && !init && !page && !sheared && !widget)
+    (!entity && !feature && !init && !page && !shared && !widget)
 
   const progressStep = progressPercents[methodology]
 
@@ -56,9 +58,9 @@ export const generateFsdSnapshots = (options: Options) => {
     execCommands('page', pageCommands, progressStep)
   }
 
-  // ---------sheared-----------------------------------------------------
-  if (generateAll || sheared) {
-    execCommands('sheared', shearedCommands, progressStep)
+  // ---------shared-----------------------------------------------------
+  if (generateAll || shared) {
+    execCommands('shared', sharedCommands, progressStep)
   }
 
   // ---------widgets-----------------------------------------------------

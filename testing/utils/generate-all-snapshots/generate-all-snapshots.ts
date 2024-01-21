@@ -1,13 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
+import { removeDir } from 'utils/file-system'
+
 import { Folder } from 'scripts/constants'
 import { cli } from 'scripts/services/cli'
-import { removeDir } from 'utils/file-system'
+
+import { progress } from './progress'
+import { generateOptions } from './get-options'
+import { writeParamsError } from './write-params-error'
 import { generateFsdSnapshots } from './generate-fsd-snapshots'
 import { generateSimpleSnapshots } from './generate-simple-snapshots'
-import { generateOptions } from './get-options'
-import { progress } from './progress'
-import { writeParamsError } from './write-params-error'
 
 const removeSrc = () => {
   removeDir(Folder.src)
@@ -38,6 +38,6 @@ export const generateAllSnapshots = () => {
   }
 
   removeDir(Folder.src)
-  
+
   progress.finish()
 }

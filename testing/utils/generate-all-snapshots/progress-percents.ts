@@ -3,18 +3,18 @@ import {
   featureCommands,
   initCommands,
   pageCommands,
-  shearedCommands,
+  sharedCommands,
   widgetCommands
 } from 'testing/commands'
-import { componentCommands } from 'testing/commands/component'
 import { hookCommands } from 'testing/commands/hook'
+import { componentCommands } from 'testing/commands/component'
 
 const fsdCommandsNumber =
   entityCommands.length +
   featureCommands.length +
   initCommands.length +
   pageCommands.length +
-  shearedCommands.length +
+  sharedCommands.length +
   widgetCommands.length
 
 const simpleCommandsNumber =

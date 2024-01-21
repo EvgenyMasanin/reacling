@@ -1,4 +1,4 @@
-import { type Argv } from 'yargs'
+import type { Argv } from 'yargs'
 
 export const generateOptions = (yargs: Argv) =>
   yargs
@@ -33,10 +33,10 @@ export const generateOptions = (yargs: Argv) =>
         describe: 'If "true", generate snapshots for "feature" command'
       },
 
-      sheared: {
+      shared: {
         type: 'boolean',
         alias: 's',
-        describe: 'If "true", generate snapshots for "sheared" command'
+        describe: 'If "true", generate snapshots for "shared" command'
       },
       component: {
         type: 'boolean',

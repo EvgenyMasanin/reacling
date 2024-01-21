@@ -8,14 +8,12 @@ import {
 } from 'scripts/project-generators/fsd-structure/feature'
 import { initProject } from 'scripts/project-generators/fsd-structure/init-project'
 import { pageGenerator } from 'scripts/project-generators/fsd-structure/page-generator'
-import { shearedComponentGenerator } from 'scripts/project-generators/fsd-structure/sheared-component-generator'
+import { sharedComponentGenerator } from 'scripts/project-generators/fsd-structure/shared-component-generator'
 import { widgetGenerator } from 'scripts/project-generators/fsd-structure/widget-generator'
-import {
-  FsdCommand,
-  FsdCommandAlias,
-  Parameter,
-  type CommandConfig
-} from '../types'
+
+import { FsdCommand, FsdCommandAlias, Parameter } from '../types'
+
+import type { CommandConfig } from '../types'
 
 const addEntityConfig: CommandConfig = {
   command: FsdCommand.entity,
@@ -59,12 +57,12 @@ const addWidgetConfig: CommandConfig = {
   describe: 'add new widget',
   handler: widgetGenerator
 }
-const addShearedUIConfig: CommandConfig = {
-  command: FsdCommand.shearedUI,
+const addSharedUIConfig: CommandConfig = {
+  command: FsdCommand.sharedUI,
   parameter: Parameter.name,
-  alias: FsdCommandAlias.shearedUI,
-  describe: 'add new sheared component',
-  handler: shearedComponentGenerator
+  alias: FsdCommandAlias.sharedUI,
+  describe: 'add new shared component',
+  handler: sharedComponentGenerator
 }
 
 const initConfig: CommandConfig = {
@@ -80,6 +78,6 @@ export const commands: CommandConfig[] = [
   addFeatureUIConfig,
   addPageConfig,
   addWidgetConfig,
-  addShearedUIConfig,
+  addSharedUIConfig,
   initConfig
 ] as const

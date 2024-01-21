@@ -1,14 +1,14 @@
-export const shearedCommands = [
+export const sharedCommands = [
   {
     command: 'su button',
-    snapshotFileName: 'new-sheared'
+    snapshotFileName: 'new-shared'
   },
   {
     command: 'su button',
-    snapshotFileName: 'sheared-already-exist'
+    snapshotFileName: 'shared-already-exist'
   },
   {
     command: 'su',
-    snapshotFileName: 'missing-sheared-name'
+    snapshotFileName: 'missing-shared-name'
   }
 ] as const
