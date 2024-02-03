@@ -1,4 +1,6 @@
 import boxen from 'boxen'
+import { padding } from '@scripts/constants/index'
+
 import chalk from 'chalk'
 
 class Progress {
@@ -52,8 +54,8 @@ class Progress {
 
     process.stdout.write(
       boxen(this.progressBar, {
-        title: chalk.blue('Snapshot progress:'),
-        padding: { bottom: 0, left: 2, right: 2, top: 0 }
+        title: chalk.blue('Snapshot progress: '),
+        padding
       })
     )
   }

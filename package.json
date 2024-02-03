@@ -29,8 +29,9 @@
   "dependencies": {
     "boxen": "5.1.2",
     "chalk": "4.1.2",
-    "yargs": "^17.7.2",
-    "prompt-sync": "^4.2.0"
+    "inquirer": "^9.2.13",
+    "prompt-sync": "^4.2.0",
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.6",
@@ -65,7 +66,7 @@
     "typescript": "*"
   },
   "source": "scripts/main.ts",
-  "main": "main/index.js",
+  "module": "main/index.js",
   "bin": "./main/index.js",
   "targets": {
     "main": {

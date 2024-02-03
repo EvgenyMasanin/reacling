@@ -1,6 +1,8 @@
-import { cli } from 'scripts/services/cli'
-import { type CommandConfig, type InputParameters } from '../types'
+import { cli } from '@services/cli'
+
 import { commands } from './commands'
+
+import type { CommandConfig, InputParameters } from '../types'
 
 function addCommand({
   command,

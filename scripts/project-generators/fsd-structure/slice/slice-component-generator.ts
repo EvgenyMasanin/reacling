@@ -1,13 +1,15 @@
 import { join } from 'path'
-import { Folder } from 'scripts/constants'
 import {
   appendToIndex,
   createComponentFiles,
   isDirExist,
   mkdirIfNotExist
-} from 'utils/file-system'
-import { logger } from 'utils/loggers'
+} from '@utils/file-system'
+import { logger } from '@utils/loggers'
+import { Folder } from '@scripts/constants'
+
 import { getLayerPath } from './helpers'
+
 import type { Layer } from './types'
 
 export const sliceComponentGenerator = (
@@ -17,13 +19,13 @@ export const sliceComponentGenerator = (
 ) => {
   const layerPath = getLayerPath(layer, sliceName)
   if (!isDirExist(layerPath)) {
-    logger.addNotExistLog(sliceName, layer)
+    logger.pushNotExistLog(sliceName, layer)
     return
   }
 
   const sliceUiPath = join(layerPath, Folder.ui)
   if (isDirExist(join(sliceUiPath, componentName))) {
-    logger.addAlreadyExistLog(
+    logger.pushAlreadyExistLog(
       componentName,
       `component of ${sliceName} ${layer}`
     )

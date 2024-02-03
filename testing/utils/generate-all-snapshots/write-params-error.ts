@@ -1,4 +1,6 @@
 import boxen from 'boxen'
+import { padding } from '@scripts/constants/index'
+
 import chalk from 'chalk'
 
 export const writeParamsError = () => {
@@ -6,7 +8,7 @@ export const writeParamsError = () => {
     chalk.red(
       boxen(chalk.redBright("Generate all snapshot doesn't take any params!"), {
         title: 'Error:',
-        padding: { top: 0, bottom: 0, left: 2, right: 0 }
+        padding
       })
     )
   )

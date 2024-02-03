@@ -1,66 +1,64 @@
 import boxen from 'boxen'
+import { Status } from '@scripts/constants'
+import { padding } from '@scripts/constants/index'
+import { toSingular } from '@utils/strings/to-singular'
+
 import chalk from 'chalk'
-import { Status } from 'scripts/constants'
-import { type Methodology } from 'scripts/services/config/types'
-import { toSingular } from 'utils/strings/to-singular'
+
+import { writeHelp } from './write-help'
 import { capitalizeFirst } from '../strings'
 import { pathTransform } from '../strings/path-transform'
-import { writeHelp } from './write-help'
 
-export const isSuccess = (status: Status) => status === Status.success
+import type { MethodologyEnum } from '@services/config/types'
+
+const isSuccess = (status: Status) => status === Status.success
 
 class Logger {
   readonly #successLogs: string[] = []
   readonly #errorLogs: string[] = []
   readonly #commonLogs: string[] = []
 
-  incorrectCommandLog() {
-    this.addErrorLog('Incorrect command! Use reacling --help.')
-  }
+  log(status: Status, log: string) {}
 
-  addLog(status: Status, log: string) {
+  pushLog(status: Status, log: string) {
     const transformedLog = pathTransform(log)
     isSuccess(status)
       ? this.#successLogs.push(transformedLog)
       : this.#errorLogs.push(transformedLog)
   }
 
-  addCommonLog(log: string) {
+  pushCommonLog(log: string) {
     this.#commonLogs.push(pathTransform(log))
   }
 
-  addErrorLog(log: string) {
-    this.addLog(Status.error, pathTransform(log))
+  pushErrorLog(log: string) {
+    this.pushLog(Status.error, pathTransform(log))
   }
 
-  addSuccessLog(log: string) {
-    this.addLog(Status.success, pathTransform(log))
+  pushSuccessLog(log: string) {
+    this.pushLog(Status.success, pathTransform(log))
   }
 
-  addAlreadyExistLog(name: string, message: string = '') {
-    this.addLog(
+  pushAlreadyExistLog(name: string, message: string = '') {
+    this.pushLog(
       Status.error,
       `${chalk.underline.italic(name)} ${toSingular(message)} is already exist!`
     )
   }
 
-  addNotExistLog(name: string, message: string = '') {
-    this.addLog(
+  pushNotExistLog(name: string, message: string = '') {
+    this.pushLog(
       Status.error,
       `${chalk.underline.italic(name)} ${message} is not exist!`
     )
   }
 
-  addUnknownCommandLog(command: string) {
-    this.addLog(Status.error, `Unknown command "${chalk.italic(command)}"!`)
+  pushUnknownCommandLog(command: string) {
+    this.pushLog(Status.error, `Unknown command "${chalk.italic(command)}"!`)
   }
 
-  #getLogs(status?: Status) {
-    if (!status) return this.#commonLogs.join('\n')
-
-    return isSuccess(status)
-      ? this.#successLogs.join('\n')
-      : this.#errorLogs.join('\n')
+  writeHelp(methodology: MethodologyEnum) {
+    writeHelp(methodology)
   }
 
   writeLogs() {
@@ -75,15 +73,19 @@ class Logger {
     }
   }
 
-  writeHelp(methodology: Methodology) {
-    writeHelp(methodology)
+  #getLogs(status?: Status) {
+    if (!status) return this.#commonLogs.join('\n')
+
+    return isSuccess(status)
+      ? this.#successLogs.join('\n')
+      : this.#errorLogs.join('\n')
   }
 
   #errorLog<T extends string>(content: T) {
     console.log(
       boxen(chalk.redBright(`${content}`), {
         title: `${capitalizeFirst(Status.error)}:`,
-        padding: { top: 0, bottom: 0, left: 2, right: 0 },
+        padding,
         borderColor: 'red'
       })
     )
@@ -93,7 +95,7 @@ class Logger {
     console.log(
       boxen(chalk.greenBright(content), {
         title: `${capitalizeFirst(Status.success)}:`,
-        padding: { top: 0, bottom: 0, left: 2, right: 0 },
+        padding,
         borderColor: 'green'
       })
     )

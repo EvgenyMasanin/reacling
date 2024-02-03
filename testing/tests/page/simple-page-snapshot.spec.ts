@@ -1,11 +1,13 @@
-import { mkdirSync } from 'fs'
 import { join } from 'path'
-import { Folder } from 'scripts/constants'
-import { config } from 'scripts/services/config'
+import { mkdirSync } from 'fs'
+import { Folder } from '@scripts/constants'
 import { pageCommands } from 'testing/commands'
-import { type Command } from 'testing/commands/types'
+import { removeDir } from '@utils/file-system'
+import { configService } from '@services/config'
+import { MethodologyEnum } from '@services/config/types'
 import { equalConsoleOutput } from 'testing/utils/equal-console-output'
-import { removeDir } from 'utils/file-system'
+
+import type { Command } from 'testing/commands/types'
 
 describe('"simple" page snapshots', () => {
   const equalConsoleInitOutput = (commands: Command) => {
@@ -15,12 +17,12 @@ describe('"simple" page snapshots', () => {
   beforeAll(() => {
     removeDir(Folder.src)
     mkdirSync(Folder.src)
-    config.changeMethodology('common')
+    configService.changeMethodology(MethodologyEnum.simple)
   })
 
   afterAll(() => {
     removeDir(Folder.src)
-    config.changeMethodology('fsd')
+    configService.changeMethodology(MethodologyEnum.fsd)
   })
 
   it('new page', () => {

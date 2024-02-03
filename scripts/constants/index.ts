@@ -25,6 +25,29 @@ export enum Folder {
   helpers = 'helpers'
 }
 
+export enum LayerFolder {
+  app = 'app',
+  pages = 'pages',
+  widgets = 'widgets',
+  features = 'features',
+  entities = 'entities',
+  shared = 'shared'
+}
+
+export enum SegmentFolder {
+  ui = 'ui',
+  assets = 'assets',
+  lib = 'lib',
+  api = 'api',
+  config = 'config',
+  types = 'types',
+  model = 'model',
+  helpers = 'helpers'
+}
+
+export const layersFolders = Object.values(LayerFolder)
+export const segmentsFolders = Object.values(SegmentFolder)
+
 export const PAGE_FOLDER_PATH = join(Folder.src, Folder.pages)
 export const STORE_FOLDER_PATH = join(Folder.src, Folder.store)
 export const INDEX = 'index.ts'
@@ -33,5 +56,8 @@ export const REACLING_CONFIG = 'reacling.json'
 
 export enum Status {
   success = 'success',
-  error = 'error'
+  error = 'error',
+  info = 'info'
 }
+
+export const padding = { top: 0, bottom: 0, left: 2, right: 0 }

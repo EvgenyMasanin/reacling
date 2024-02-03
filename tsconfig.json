@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
+    "module": "Node16",
     "target": "es2017",
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node16",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -21,7 +21,9 @@
     "noUnusedLocals": false,
     "baseUrl": "./",
     "paths": {
-      "scripts/*":["scripts/*"]
+      "@scripts/*":["scripts/*"],
+      "@utils/*":["utils/*"],
+      "@services/*":["services/*"],
     }
   }
 }

@@ -1,14 +1,18 @@
 #!/usr/bin/env node
-import { logger } from 'utils/loggers'
-import { mkdirIfNotExist } from 'utils/file-system'
+import boxen from 'boxen'
+import { cli } from '@services/cli'
+import { logger } from '@utils/loggers'
+import { configService } from '@services/config'
+import { dialogService } from '@services/dialog'
+import { mkdirIfNotExist } from '@utils/file-system'
+import { padding } from '@scripts/constants/index'
+
+import chalk from 'chalk'
 
 import { handleFail } from './errors'
 import { Folder } from './constants'
-import { cli } from './services/cli'
-import { config } from './services/config'
 import { allAvailableCommands } from './executors/types'
 import { fsdExecute } from './executors/fsd-execute'
-import { dialog as getConfigDialog } from './services/dialog'
 import { simpleExecute } from './executors/simple-execute.ts/simple-execute'
 
 import type { AllAvailableCommands } from './executors/types'
@@ -17,11 +21,11 @@ import type { AllAvailableCommands } from './executors/types'
 function start() {
   const methodology = {
     fsd: fsdExecute,
-    common: simpleExecute
+    simple: simpleExecute
   }
 
   if (process.argv[2] === '--help') {
-    logger.writeHelp(config.methodology)
+    logger.writeHelp(configService.methodology)
     return
   }
 
@@ -34,7 +38,7 @@ function start() {
     .middleware((props) => {
       const inputCommand = props._[0] as AllAvailableCommands
       if (inputCommand && !allAvailableCommands.includes(inputCommand)) {
-        logger.addUnknownCommandLog(inputCommand)
+        logger.pushUnknownCommandLog(inputCommand)
         throw new Error()
       }
       if (inputCommand === 'config') return
@@ -45,15 +49,27 @@ function start() {
     .command({
       command: 'config',
       describe: 'Use to generate config.json',
-      handler: () => {
-        config.overwriteUserConfig(getConfigDialog())
+      handler: async () => {
+        console.log(
+          chalk.blueBright(
+            boxen('Generating config file...', { title: 'Reacling', padding })
+          )
+        )
+        configService.overwriteUserConfig(
+          await dialogService.askAboutConfiguration()
+        )
+        logger.pushSuccessLog('Config file has been generated!')
       }
     })
 
-  methodology[config.methodology]()
+  methodology[configService.methodology]()
 
-  cli.yargs.parseSync()
-  logger.writeLogs()
+  cli.yargs
+    .parseAsync()
+    .then(() => {
+      logger.writeLogs()
+    })
+    .catch(() => {})
 }
 
 try {

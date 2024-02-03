@@ -1,11 +1,13 @@
-import { mkdirSync } from 'fs'
 import { join } from 'path'
-import { Folder } from 'scripts/constants'
-import { config } from 'scripts/services/config'
+import { mkdirSync } from 'fs'
+import { Folder } from '@scripts/constants'
+import { removeDir } from '@utils/file-system'
+import { configService } from '@services/config'
+import { MethodologyEnum } from '@services/config/types'
 import { componentCommands } from 'testing/commands/component'
-import { type Command } from 'testing/commands/types'
 import { equalConsoleOutput } from 'testing/utils/equal-console-output'
-import { removeDir } from 'utils/file-system'
+
+import type { Command } from 'testing/commands/types'
 
 describe('component snapshots', () => {
   const equalConsoleInitOutput = (commands: Command) => {
@@ -15,11 +17,11 @@ describe('component snapshots', () => {
   beforeAll(() => {
     removeDir(Folder.src)
     mkdirSync(Folder.src)
-    config.changeMethodology('common')
+    configService.changeMethodology(MethodologyEnum.simple)
   })
 
   afterAll(() => {
-    config.changeMethodology('fsd')
+    configService.changeMethodology(MethodologyEnum.fsd)
     removeDir(Folder.src)
   })
 

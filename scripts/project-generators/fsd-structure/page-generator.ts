@@ -1,8 +1,13 @@
 import { join } from 'path'
-import { Folder, INDEX } from 'scripts/constants'
-import { appendToIndex, createComponentFiles, createFile } from 'utils/file-system'
+import {
+  appendToIndex,
+  createComponentFiles,
+  createFile
+} from '@utils/file-system'
+import { Folder, INDEX } from '@scripts/constants'
+
 import { sliceGenerator } from './slice/slice-generator'
-import { generateIndexContent } from '../common-structure/content-generators'
+import { generateIndexContent } from '../simple-structure/content-generators'
 
 export const pageGenerator = (name: string) => {
   const pageFolderPath = join(Folder.src, Folder.pages)

@@ -1,12 +1,13 @@
-import { mkdirSync } from 'fs'
 import { join } from 'path'
-import { Folder } from 'scripts/constants'
-import { config } from 'scripts/services/config'
+import { mkdirSync } from 'fs'
+import { Folder } from '@scripts/constants'
+import { removeDir } from '@utils/file-system'
+import { configService } from '@services/config'
 import { hookCommands } from 'testing/commands/hook'
-import { type Command } from 'testing/commands/types'
+import { MethodologyEnum } from '@services/config/types'
 import { equalConsoleOutput } from 'testing/utils/equal-console-output'
-import { removeDir } from 'utils/file-system'
 
+import type { Command } from 'testing/commands/types'
 describe('hook snapshots', () => {
   const equalConsoleInitOutput = (commands: Command) => {
     equalConsoleOutput(join('simple', 'hook'), commands)
@@ -15,12 +16,12 @@ describe('hook snapshots', () => {
   beforeAll(() => {
     removeDir(Folder.src)
     mkdirSync(Folder.src)
-    config.changeMethodology('common')
+    configService.changeMethodology(MethodologyEnum.simple)
   })
 
   afterAll(() => {
     removeDir(Folder.src)
-    config.changeMethodology('fsd')
+    configService.changeMethodology(MethodologyEnum.fsd)
   })
 
   it('new hook', () => {

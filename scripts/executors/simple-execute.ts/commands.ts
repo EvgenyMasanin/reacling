@@ -2,13 +2,11 @@ import {
   generateComponent,
   generateHook,
   generatePage
-} from 'scripts/project-generators/common-structure/component-generators'
-import {
-  Parameter,
-  SimpleCommand,
-  SimpleCommandAlias,
-  type CommandConfig
-} from '../types'
+} from '@scripts/project-generators/simple-structure/component-generators'
+
+import { Parameter, SimpleCommand, SimpleCommandAlias } from '../types'
+
+import type { CommandConfig } from '../types'
 
 const generateComponentConfig: CommandConfig = {
   command: SimpleCommand.component,

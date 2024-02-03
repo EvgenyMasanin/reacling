@@ -1,6 +1,7 @@
-import { Folder } from 'scripts/constants'
-import { isDirExist, mkdirIfNotExist } from 'utils/file-system'
-import { logger } from 'utils/loggers'
+import { logger } from '@utils/loggers'
+import { Folder } from '@scripts/constants'
+import { configService } from '@services/config'
+import { isDirExist, mkdirIfNotExist } from '@utils/file-system'
 
 import {
   createLib,
@@ -9,20 +10,16 @@ import {
   getLayerPath
 } from './helpers'
 
-import { config } from 'scripts/services/config'
 import type { Layer } from './types'
 
-export const sliceGenerator = (
-  layer: Layer,
-  sliceName: string
-) => {
+export const sliceGenerator = (layer: Layer, sliceName: string) => {
   const layerFolderPath = getLayerFolderPath(layer)
   const layerPath = getLayerPath(layer, sliceName)
 
   mkdirIfNotExist(Folder.src, Folder[layer])
 
   if (isDirExist(layerPath)) {
-    logger.addAlreadyExistLog(sliceName, layer)
+    logger.pushAlreadyExistLog(sliceName, layer)
     return false
   }
 
@@ -36,7 +33,7 @@ export const sliceGenerator = (
     withUi,
     withLib,
     withModel
-  } = config.getSliceConfig(layer)
+  } = configService.getSliceConfig(layer)
 
   if (withUi) createUi(layerPath)
 

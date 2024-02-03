@@ -1,6 +1,5 @@
 import boxen from 'boxen'
-
-import type { Methodology } from 'scripts/services/config/types'
+import { MethodologyEnum } from '@services/config/types'
 
 import type { Options } from 'boxen'
 
@@ -41,12 +40,12 @@ export const FSD_REACT_COMMANDS = boxen(
 //   Generate a store: store
 //   `
 
-export const writeHelp = (methodology: Methodology) => {
+export const writeHelp = (methodology: MethodologyEnum) => {
   switch (methodology) {
-    case 'common':
+    case MethodologyEnum.simple:
       console.log(REACT_COMMANDS)
       break
-    case 'fsd':
+    case MethodologyEnum.fsd:
       console.log(FSD_REACT_COMMANDS)
       break
     default:

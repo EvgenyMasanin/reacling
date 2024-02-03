@@ -1,5 +1,6 @@
-import { mkdirSync } from 'fs'
 import { join } from 'path'
+import { mkdirSync } from 'fs'
+
 import { logger } from '../loggers'
 import { isDirExist } from './is-dir-exist'
 
@@ -8,9 +9,9 @@ export const mkdirIfNotExist = (root: string, dir: string) => {
     const path = join(root, dir)
     if (!isDirExist(path)) {
       mkdirSync(path)
-      logger.addSuccessLog(`Folder created: ${path.match(/src.*/)[0]}.`)
+      logger.pushSuccessLog(`Folder created: ${path.match(/src.*/)[0]}.`)
     }
   } catch (error) {
-    logger.addErrorLog(error)
+    logger.pushErrorLog(error)
   }
 }

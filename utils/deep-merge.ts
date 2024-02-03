@@ -4,19 +4,21 @@ function isObject(item: unknown): item is UnknownObject {
 }
 
 export const deepMerge = (target: unknown, source: unknown) => {
-  if (!source) return target
+  const targetClone = structuredClone(target)
 
-  if (!isObject(target) || !isObject(source)) return target
+  if (!source) return targetClone
+
+  if (!isObject(targetClone) || !isObject(source)) return targetClone
 
   for (const key in source) {
     if (!isObject(source[key])) {
-      target[key] = source[key]
+      targetClone[key] = source[key]
       continue
     }
 
-    if (!target[key]) target[key] = {}
+    if (!targetClone[key]) targetClone[key] = {}
 
-    deepMerge(target[key], source[key])
+    deepMerge(targetClone[key], source[key])
   }
-  return target
+  return targetClone
 }

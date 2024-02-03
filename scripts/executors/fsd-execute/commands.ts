@@ -1,15 +1,15 @@
 import {
   entityComponentGenerator,
   entityGenerator
-} from 'scripts/project-generators/fsd-structure/entity'
+} from '@scripts/project-generators/fsd-structure/entity'
 import {
   featureComponentGenerator,
   featureGenerator
-} from 'scripts/project-generators/fsd-structure/feature'
-import { initProject } from 'scripts/project-generators/fsd-structure/init-project'
-import { pageGenerator } from 'scripts/project-generators/fsd-structure/page-generator'
-import { sharedComponentGenerator } from 'scripts/project-generators/fsd-structure/shared-component-generator'
-import { widgetGenerator } from 'scripts/project-generators/fsd-structure/widget-generator'
+} from '@scripts/project-generators/fsd-structure/feature'
+import { initProject } from '@scripts/project-generators/fsd-structure/init-project'
+import { pageGenerator } from '@scripts/project-generators/fsd-structure/page-generator'
+import { widgetGenerator } from '@scripts/project-generators/fsd-structure/widget-generator'
+import { sharedComponentGenerator } from '@scripts/project-generators/fsd-structure/shared-component-generator'
 
 import { FsdCommand, FsdCommandAlias, Parameter } from '../types'
 

@@ -1,4 +1,4 @@
-import type { Folder } from 'scripts/constants'
+import type { Folder } from '@scripts/constants'
 
 export type Layer =
   | Folder.app

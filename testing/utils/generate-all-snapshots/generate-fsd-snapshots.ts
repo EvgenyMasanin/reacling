@@ -7,10 +7,9 @@ import {
   sharedCommands,
   widgetCommands
 } from 'testing/commands'
-import { removeDir } from 'utils/file-system'
-import { joinStrings } from 'utils/strings/join-strings'
-
-import { Folder } from 'scripts/constants'
+import { Folder } from '@scripts/constants'
+import { removeDir } from '@utils/file-system'
+import { joinStrings } from '@utils/strings/join-strings'
 
 import { execCommands } from './exec-commands'
 import { execSnapshot } from './exec-snapshot'

@@ -1,12 +1,15 @@
 import { join } from 'path'
 import { readFileSync } from 'fs'
-import { createComponentFiles, createFileIfNotExist, mkdirIfNotExist } from 'utils/file-system'
-
-import { Folder, INDEX } from 'scripts/constants'
-import { config } from 'scripts/services/config'
+import {
+  createComponentFiles,
+  createFileIfNotExist,
+  mkdirIfNotExist
+} from '@utils/file-system'
+import { configService } from '@services/config'
+import { Folder, INDEX } from '@scripts/constants'
 
 const mkAppFolder = () => {
-  const { withProviders } = config.getAppConfig()
+  const { withProviders } = configService.getAppConfig()
 
   const appFolderPath = join(Folder.src, Folder.app)
 

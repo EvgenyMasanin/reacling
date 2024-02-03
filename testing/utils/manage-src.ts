@@ -1,5 +1,6 @@
-import { Folder } from 'scripts/constants'
-import { removeDir } from 'utils/file-system'
+import { Folder } from '@scripts/constants'
+import { removeDir } from '@utils/file-system'
+
 import { execScript } from './exec-script'
 
 export const manageSrc = () => {

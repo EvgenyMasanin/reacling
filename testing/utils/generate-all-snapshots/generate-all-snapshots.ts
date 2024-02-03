@@ -1,7 +1,7 @@
-import { removeDir } from 'utils/file-system'
-
-import { Folder } from 'scripts/constants'
-import { cli } from 'scripts/services/cli'
+import { cli } from '@services/cli'
+import { Folder } from '@scripts/constants'
+import { removeDir } from '@utils/file-system'
+import { MethodologyEnum } from '@services/config/types'
 
 import { progress } from './progress'
 import { generateOptions } from './get-options'
@@ -29,11 +29,11 @@ export const generateAllSnapshots = () => {
 
   removeSrc()
 
-  if (methodology === 'all' || methodology === 'fsd') {
+  if (methodology === 'all' || methodology === MethodologyEnum.fsd) {
     generateFsdSnapshots(options)
   }
 
-  if (methodology === 'all' || methodology === 'simple') {
+  if (methodology === 'all' || methodology === MethodologyEnum.simple) {
     generateSimpleSnapshots(options)
   }
 

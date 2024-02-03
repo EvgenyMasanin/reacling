@@ -1,2 +1,2 @@
 export * from './to-camel-case'
-export * from './up-first'
+export * from './capitalize-first'

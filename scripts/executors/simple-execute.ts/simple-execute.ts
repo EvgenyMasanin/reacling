@@ -1,7 +1,8 @@
-import { cli } from 'scripts/services/cli'
-import { type CommandConfig, type InputParameters } from '../types'
+import { cli } from '@services/cli'
+
 import { commands } from './commands'
-import { logger } from 'utils/loggers'
+
+import type { CommandConfig, InputParameters } from '../types'
 
 function addCommand({
   command,
@@ -22,6 +23,5 @@ function addCommand({
 }
 
 export function simpleExecute(): void {
-  logger.addErrorLog('generatePage')
   commands.forEach(addCommand)
 }

@@ -14,7 +14,7 @@ $ yarn reacling c <component name>
  --help  Show available commands
 ```
 
-## Commands for common project
+## Commands for simple project
 
 - Generate a component: `$ yarn reacling c <component name> `
 - Generate a page: `$ yarn reacling p <page name> `
@@ -82,7 +82,7 @@ interface SliceStructure {
   withModel?: boolean
 }
 
-type Methodology = 'common' | 'fsd'
+type Methodology = 'simple' | 'fsd'
 
 interface ReaclingConfig {
   methodology?: Methodology
@@ -97,6 +97,8 @@ interface ReaclingConfig {
   }
 }
 ```
+
 ##### For example:
+
 The command `$ yarn reacling init` provide us next folders structure:
 ![alt text](./assets/structure.png 'Title')
