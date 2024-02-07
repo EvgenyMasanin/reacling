@@ -40,7 +40,6 @@ export enum SegmentFolder {
   lib = 'lib',
   api = 'api',
   config = 'config',
-  types = 'types',
   model = 'model',
   helpers = 'helpers'
 }

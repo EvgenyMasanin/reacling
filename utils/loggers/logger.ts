@@ -6,8 +6,8 @@ import { toSingular } from '@utils/strings/to-singular'
 
 import chalk from 'chalk'
 
-import { writeHelp } from './write-help'
 import { capitalizeFirst } from '../strings'
+import { getHelpMessage } from './write-help'
 import { pathTransform } from '../strings/path-transform'
 
 import type { MethodologyEnum } from '@services/config/types'
@@ -18,23 +18,23 @@ class Logger {
   readonly #errorLogs: string[] = []
   readonly #commonLogs: string[] = []
 
-  pushLog(status: Status, log: string) {
-    const transformedLog = pathTransform(log)
+  pushLog(status: Status, log: string, allowBackslash = false) {
+    const transformedLog = allowBackslash ? log : pathTransform(log)
     isSuccess(status)
       ? this.#successLogs.push(transformedLog)
       : this.#errorLogs.push(transformedLog)
   }
 
-  pushCommonLog(log: string) {
-    this.#commonLogs.push(pathTransform(log))
+  pushCommonLog(log: string, allowBackslash = false) {
+    this.#commonLogs.push(allowBackslash ? log : pathTransform(log))
   }
 
-  pushErrorLog(log: string) {
-    this.pushLog(Status.error, log)
+  pushErrorLog(log: string, allowBackslash = false) {
+    this.pushLog(Status.error, log, allowBackslash)
   }
 
-  pushSuccessLog(log: string) {
-    this.pushLog(Status.success, log)
+  pushSuccessLog(log: string, allowBackslash = false) {
+    this.pushLog(Status.success, log, allowBackslash)
   }
 
   pushMissingArguments(...args: string[]) {
@@ -53,7 +53,7 @@ class Logger {
   pushNotExistLog(name: string, message: string = '') {
     this.pushLog(
       Status.error,
-      `${chalk.underline.italic(name)} ${message} is not exist!`
+      `${chalk.underline.italic(name)} "${message}" is not exist!`
     )
   }
 
@@ -61,8 +61,20 @@ class Logger {
     this.pushLog(Status.error, `Unknown command "${chalk.italic(command)}"!`)
   }
 
+  write(message: string) {
+    console.log(message)
+  }
+
+  writeStartConfigGenerating() {
+    this.write(
+      chalk.blueBright(
+        boxen('Generating config file...', { title: 'Reacling', padding })
+      )
+    )
+  }
+
   writeHelp(methodology: MethodologyEnum) {
-    writeHelp(methodology)
+    this.write(getHelpMessage(methodology))
   }
 
   writeLogs() {
@@ -73,7 +85,7 @@ class Logger {
       this.#errorLog(this.#getLogs(Status.error))
     }
     if (this.#commonLogs.length > 0) {
-      console.log(this.#getLogs())
+      this.write(this.#getLogs())
     }
   }
 
@@ -86,7 +98,7 @@ class Logger {
   }
 
   #errorLog<T extends string>(content: T) {
-    console.log(
+    this.write(
       boxen(chalk.redBright(`${content}`), {
         title: `${capitalizeFirst(Status.error)}:`,
         padding,
@@ -96,7 +108,7 @@ class Logger {
   }
 
   #successLog(content: string) {
-    console.log(
+    this.write(
       boxen(chalk.greenBright(content), {
         title: `${capitalizeFirst(Status.success)}:`,
         padding,

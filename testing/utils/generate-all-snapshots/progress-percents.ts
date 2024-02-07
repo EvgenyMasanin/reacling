@@ -1,6 +1,7 @@
 import {
   entityCommands,
   featureCommands,
+  fsdHookCommands,
   initCommands,
   pageCommands,
   sharedCommands,
@@ -15,7 +16,8 @@ const fsdCommandsNumber =
   initCommands.length +
   pageCommands.length +
   sharedCommands.length +
-  widgetCommands.length
+  widgetCommands.length +
+  fsdHookCommands.length
 
 const simpleCommandsNumber =
   componentCommands.length + hookCommands.length + pageCommands.length

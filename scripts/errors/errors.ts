@@ -1,5 +1,8 @@
 import type { MissingArgumentError } from '../executors/types'
 
+export const CONTROLLABLE_EXIT = 'Controllable exit!'
+export const UNKNOWN_COMMAND = 'Unknown command!'
+
 export const MISSING_ARGUMENT = 'Missing argument'
 
 const MISSING_NAME = (layerName: string) =>

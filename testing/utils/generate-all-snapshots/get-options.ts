@@ -40,12 +40,12 @@ export const generateOptions = (yargs: Argv) =>
       },
       component: {
         type: 'boolean',
-        alias: 's',
+        alias: 'c',
         describe: 'If "true", generate snapshots for "component" command'
       },
       hook: {
         type: 'boolean',
-        alias: 's',
+        alias: 'h',
         describe: 'If "true", generate snapshots for "hook" command'
       },
       methodology: {

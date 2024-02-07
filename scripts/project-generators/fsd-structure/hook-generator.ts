@@ -43,7 +43,8 @@ export function hookGenerator(hookName: string, slicePath: string) {
   const absoluteSlicePath = join(Folder.src, layerFolderName, sliceName)
 
   if (!isDirExist(absoluteSlicePath)) {
-    logger.pushNotExistLog(layerFolderName, sliceName)
+    console.log('🚀 ~ hookGenerator ~ absoluteSlicePath:', absoluteSlicePath)
+    logger.pushNotExistLog(layerName, sliceName)
   }
 
   mkdirIfNotExist(absoluteSlicePath, SegmentFolder.lib)

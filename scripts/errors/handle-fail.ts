@@ -1,7 +1,7 @@
 import { cli } from '@services/cli'
 import { logger } from '@utils/loggers'
 
-import { missingArgumentError } from './errors'
+import { CONTROLLABLE_EXIT, missingArgumentError } from './errors'
 
 export const handleFail = (messageOrCount: string | number) => {
   const command = cli.inputCommand
@@ -11,6 +11,5 @@ export const handleFail = (messageOrCount: string | number) => {
       : messageOrCount
 
   logger.pushErrorLog(missingArgumentError[command](missingCommandsCount))
-
-  throw new Error()
+  throw new Error(CONTROLLABLE_EXIT)
 }

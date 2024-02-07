@@ -3,8 +3,11 @@ import { Folder } from '@scripts/constants'
 import { removeDir } from '@utils/file-system'
 import { MethodologyEnum } from '@services/config/types'
 
+import { execSync } from 'child_process'
+
 import { progress } from './progress'
 import { generateOptions } from './get-options'
+import { readPackageJson } from '../readPackageJson'
 import { writeParamsError } from './write-params-error'
 import { generateFsdSnapshots } from './generate-fsd-snapshots'
 import { generateSimpleSnapshots } from './generate-simple-snapshots'
@@ -28,6 +31,8 @@ export const generateAllSnapshots = () => {
   progress.writeToConsole()
 
   removeSrc()
+
+  execSync(readPackageJson().scripts.build)
 
   if (methodology === 'all' || methodology === MethodologyEnum.fsd) {
     generateFsdSnapshots(options)

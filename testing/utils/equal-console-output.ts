@@ -4,14 +4,15 @@ import { readSnapshot } from './read-snapshot'
 import { normalizeConsoleOutput } from './normalize-string'
 
 export const equalConsoleOutput = (
-  snapshotName: string,
-  entityCommands: Command
+  snapshotFolderName: string,
+  commands: Command
 ) => {
-  const { command, snapshotFileName } = entityCommands
+  const { command, snapshotFileName } = commands
 
   const consoleOutput = execScript(command)
+  console.log('🚀 ~ consoleOutput:', consoleOutput)
 
-  const snapshot = readSnapshot(snapshotName, snapshotFileName)
+  const snapshot = readSnapshot(snapshotFolderName, snapshotFileName)
 
   expect(normalizeConsoleOutput(consoleOutput)).toBe(snapshot)
 }

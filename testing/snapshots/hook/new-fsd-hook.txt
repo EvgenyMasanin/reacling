@@ -1,0 +1,4 @@
+ Success: 
+  File created: src/entities/user/lib/hooks/use-user.ts.
+  File updated: src/entities/user/lib/hooks/index.ts.
+

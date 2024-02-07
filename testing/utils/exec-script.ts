@@ -1,4 +1,5 @@
 import { execSync } from 'child_process'
+
 import { readPackageJson } from './readPackageJson'
 
 export const execScript = (parameters: string) => {

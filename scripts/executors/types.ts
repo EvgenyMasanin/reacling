@@ -1,3 +1,5 @@
+import { Argv } from 'yargs'
+
 export interface InputParameters {
   name: string
   componentName: string
@@ -15,7 +17,8 @@ export interface CommandConfig {
   parameter?: Parameter | string
   alias?: FsdCommandAlias | SimpleCommandAlias
   describe?: string
-  handler: (name: string, componentName?: string) => void
+  builder?: (args: Argv) => Argv
+  handler: (name?: string, componentName?: string) => void
 }
 
 export enum SimpleCommand {
@@ -70,6 +73,10 @@ export const allAvailableCommands = [
   ...Object.values(availableSimpleCommands),
   'config'
 ] as const
+
+export const shortcutCommands = [FsdCommand.featureUI, FsdCommand.entityUI]
+
+export const shortcutCommandsWithManyParams = [FsdCommand.hook]
 
 export type AvailableFsdCommands = (typeof availableFsdCommands)[number]
 

@@ -25,6 +25,20 @@ const addEntityUIConfig: CommandConfig = {
   parameter: Parameter.full,
   alias: FsdCommandAlias.entityUI,
   describe: 'add new component for entity',
+  builder: (argv) =>
+    argv
+      .usage(
+        'Usage: $0 eu <name> <componentName>\nAlso can be used with shortcut. Example: $0 eu user/avatar'
+      )
+      .positional('name', { describe: 'Name of entity', type: 'string' })
+      .positional('componentName', {
+        describe: 'Name of component',
+        type: 'string'
+      })
+      .example([
+        ['name', 'user'],
+        ['componentName', 'avatar']
+      ]),
   handler: entityComponentGenerator
 }
 const addFeatureConfig: CommandConfig = {
@@ -39,6 +53,20 @@ const addFeatureUIConfig: CommandConfig = {
   parameter: Parameter.full,
   alias: FsdCommandAlias.featureUI,
   describe: 'add new component for entity',
+  builder: (argv) =>
+    argv
+      .usage(
+        'Usage: $0 fu <name> <componentName>\nAlso can be used with shortcut. Example: $0 fu follow/follow-button'
+      )
+      .positional('name', { describe: 'Name of feature', type: 'string' })
+      .positional('componentName', {
+        describe: 'Name of component',
+        type: 'string'
+      })
+      .example([
+        ['name', 'follow'],
+        ['componentName', 'follow-button']
+      ]),
   handler: featureComponentGenerator
 }
 const addPageConfig: CommandConfig = {
@@ -67,8 +95,22 @@ const addHookConfig: CommandConfig = {
   command: FsdCommand.hook,
   parameter: '<hookName> <slicePath>',
   alias: FsdCommandAlias.hook,
-  describe:
-    'add new hook for slice provided by path. For example "entities/user"',
+  describe: 'Add new hook for slice provided by path.',
+  builder: (argv) =>
+    argv
+      .usage('Usage: $0 h <hookName> <slicePath>')
+      .positional('hookName', {
+        describe: 'Name of new hook.',
+        type: 'string'
+      })
+      .positional('slicePath', {
+        describe: 'Path to slice.',
+        type: 'string'
+      })
+      .example([
+        ['hookName', 'use-user'],
+        ['slicePath', 'entity/user']
+      ]),
   handler: hookGenerator
 }
 

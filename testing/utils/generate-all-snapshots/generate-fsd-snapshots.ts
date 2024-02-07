@@ -2,6 +2,7 @@ import { mkdirSync } from 'fs'
 import {
   entityCommands,
   featureCommands,
+  fsdHookCommands,
   initCommands,
   pageCommands,
   sharedCommands,
@@ -11,17 +12,19 @@ import { Folder } from '@scripts/constants'
 import { removeDir } from '@utils/file-system'
 import { joinStrings } from '@utils/strings/join-strings'
 
+import { execScript } from '../exec-script'
 import { execCommands } from './exec-commands'
 import { execSnapshot } from './exec-snapshot'
 import { progressPercents } from './progress-percents'
 
 import type { Options } from './types'
 export const generateFsdSnapshots = (options: Options) => {
-  const { entity, feature, init, page, shared, widget, methodology } = options
+  const { entity, feature, init, page, shared, widget, methodology, hook } =
+    options
 
   const generateAll =
     methodology === 'all' ||
-    (!entity && !feature && !init && !page && !shared && !widget)
+    (!entity && !feature && !init && !page && !shared && !widget && !hook)
 
   const progressStep = progressPercents[methodology]
 
@@ -57,7 +60,7 @@ export const generateFsdSnapshots = (options: Options) => {
     execCommands('page', pageCommands, progressStep)
   }
 
-  // ---------shared-----------------------------------------------------
+  // ---------shared------------------------------------------------------
   if (generateAll || shared) {
     execCommands('shared', sharedCommands, progressStep)
   }
@@ -65,5 +68,11 @@ export const generateFsdSnapshots = (options: Options) => {
   // ---------widgets-----------------------------------------------------
   if (generateAll || widget) {
     execCommands('widget', widgetCommands, progressStep)
+  }
+
+  // ---------hooks-------------------------------------------------------
+  if (generateAll || hook) {
+    execScript('e user')
+    execCommands('hook', fsdHookCommands, progressStep)
   }
 }

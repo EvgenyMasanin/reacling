@@ -61,7 +61,6 @@ function generateSnapshot({
   parameters
 }: GenerateSnapshotProps) {
   const snapshotsFolderPath = join('testing', 'snapshots', folder)
-  execSync(readPackageJson().scripts.build)
 
   const consoleOutput = execSync(
     `${readPackageJson().scripts['prod:reacling']} ${parameters}`
