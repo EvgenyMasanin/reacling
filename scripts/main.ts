@@ -1,13 +1,9 @@
 #!/usr/bin/env node
-import boxen from 'boxen'
 import { cli } from '@services/cli'
 import { logger } from '@utils/loggers'
 import { configService } from '@services/config'
 import { dialogService } from '@services/dialog'
 import { mkdirIfNotExist } from '@utils/file-system'
-import { padding } from '@scripts/constants/index'
-
-import chalk from 'chalk'
 
 import { handleFail } from './errors'
 import { Folder } from './constants'
@@ -36,14 +32,17 @@ function start() {
     .showHelpOnFail(false)
     .scriptName('reacling')
     .usage('Usage: $0 <command>')
-    .middleware((props) => {
-      const inputCommand = props._[0] as AllAvailableCommands
+    .middleware((args) => {
+      const inputCommand = args._[0] as AllAvailableCommands
       if (inputCommand && !allAvailableCommands.includes(inputCommand)) {
         logger.pushUnknownCommandLog(inputCommand)
         throw new Error(UNKNOWN_COMMAND)
       }
       if (inputCommand === 'config') return
-      if (!inputCommand.length) return
+      if (!inputCommand) {
+        cli.yargs.showHelp()
+        return
+      }
       mkdirIfNotExist('.', Folder.src)
     })
     .fail(handleFail)
@@ -78,7 +77,11 @@ try {
     error?.message !== CONTROLLABLE_EXIT &&
     error?.message !== UNKNOWN_COMMAND
   ) {
-    console.log(`🚀 ~ error1:`, error)
+    console.log(
+      `🚀 ~ Error:`,
+      'Please open an issue on github or send error stack to my email: gmasmin@gmail.com',
+      error
+    )
   }
   logger.writeLogs()
 }

@@ -1,6 +1,5 @@
 import { join } from 'path'
 import { readFileSync, writeFileSync } from 'fs'
-import { deepMerge } from '@utils/deep-merge'
 import { REACLING_CONFIG } from '@scripts/constants'
 import { goUpFolder } from '@utils/file-system/go-up-folder'
 
@@ -14,12 +13,8 @@ export class ConfigService {
 
   readonly #userConfigPath = join(__dirname, goUpFolder(4), REACLING_CONFIG)
   readonly #innerConfigPath = join(__dirname, goUpFolder(2), REACLING_CONFIG)
-
   constructor() {
-    this.#config = deepMerge(
-      this.defaultConfig,
-      this.userConfig ?? {}
-    ) as ReaclingConfig
+    this.#config = this.userConfig ? this.userConfig : this.defaultConfig
   }
 
   #readConfig(path: string) {
