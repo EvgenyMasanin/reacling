@@ -30,7 +30,6 @@
     "boxen": "5.1.2",
     "chalk": "4.1.2",
     "inquirer": "^8.0.0",
-    "prompt-sync": "^4.2.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
@@ -59,7 +58,6 @@
     "path-browserify": "^1.0.0",
     "prettier": "^3.0.3",
     "process": "^0.11.10",
-    "prompt-sync": "^4.2.0",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
