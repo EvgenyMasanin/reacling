@@ -1,7 +1,7 @@
-import { type Command } from 'testing/commands/types'
+import type { Command } from 'testing/commands/types'
 import { execScript } from './exec-script'
-import { normalizeConsoleOutput } from './normalize-string'
 import { readSnapshot } from './read-snapshot'
+import { normalizeConsoleOutput } from './normalize-string'
 
 export const equalConsoleOutput = (
   snapshotName: string,

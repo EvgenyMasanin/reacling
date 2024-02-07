@@ -11,11 +11,12 @@ const boxenConfig = (title: string): Options => ({
 
 const REACT_COMMANDS = boxen(
   `
-  Generate a component:              c  'component name' 
-  Generate a page:                   p  'page name' 
-  Generate a hook:                   h  'hook name' 
+  Generate a component:              c  <component name>
+  Generate a page:                   p  <page name> 
+  Generate a hook:                   h  <hook name> 
   Generate a config file:            config
   Get help:                          --help 
+  Get help for command:              <command> --extended-help
   `,
   boxenConfig('React commands')
 )
@@ -23,15 +24,18 @@ const REACT_COMMANDS = boxen(
 export const FSD_REACT_COMMANDS = boxen(
   `
   Generate FSD structure:            init
-  Generate a page:                   p    'page name' 
-  Generate a widget:                 w    'widget name' 
-  Generate a entity:                 e    'entity name' 
-  Generate a feature:                f    'feature name' 
-  Generate a component for shared:   su   'component name'
-  Generate a component for entity:   eu   'entity name' 'component name' 
-  Generate a component for feature:  fu   'feature name' 'component name'
+  Generate a page:                   p    <page name> 
+  Generate a widget:                 w    <widget name> 
+  Generate a entity:                 e    <entity name> 
+  Generate a feature:                f    <feature name>
+  Generate a component shortcut:     eu | fu | su <component path>
+  Generate a component for shared:   su   <component name>
+  Generate a component for entity:   eu   <entity name> <component name> 
+  Generate a component for feature:  fu   <feature name> <component name>
+  Generate a hook for slice:         h <hook name> <slice-path>
   Generate a config file:            config 
   Get help:                          --help 
+  Get help for command:              <command> --extended-help
   `,
   boxenConfig('FSD react commands')
 )

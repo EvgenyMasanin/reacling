@@ -3,7 +3,6 @@ export interface SliceStructure {
   withAssets?: boolean
   withConfig?: boolean
   withLib?: boolean
-  withTypes?: boolean
   withUi?: boolean
   withModel?: boolean
 }

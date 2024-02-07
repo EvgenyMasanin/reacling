@@ -12,6 +12,6 @@ export const mkdirIfNotExist = (root: string, dir: string) => {
       logger.pushSuccessLog(`Folder created: ${path.match(/src.*/)[0]}.`)
     }
   } catch (error) {
-    logger.pushErrorLog(error)
+    // logger.pushErrorLog(error)
   }
 }

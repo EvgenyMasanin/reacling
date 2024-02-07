@@ -15,11 +15,15 @@ function addCommand({
     command: parameter ? `${command} ${parameter}` : command,
     aliases: alias,
     describe,
-    handler: ({ name, componentName }) => {
-      handler(name, componentName)
+    handler: ({ ...rest }) => {
+      const args = parameter
+        ?.replace(/[<>\[\]]/g, '')
+        .split(' ')
+        .map((param) => rest[param] as string)
+
+      handler(args?.[0], args?.[1])
     }
   })
-  return addCommand
 }
 
 export function fsdExecute(): void {

@@ -1,3 +1,0 @@
- Error: 
-  button component of  sheared is already exist!
-

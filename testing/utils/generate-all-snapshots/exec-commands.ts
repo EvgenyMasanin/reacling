@@ -1,4 +1,4 @@
-import { type Commands } from 'testing/commands/types'
+import type { Commands } from 'testing/commands/types'
 import { execSnapshot } from './exec-snapshot'
 
 const joinStrings = (...strings: string[]) => strings.join(' ')

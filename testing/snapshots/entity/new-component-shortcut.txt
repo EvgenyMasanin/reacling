@@ -1,0 +1,6 @@
+ Success: 
+  Folder created: src/entities/user/ui/user-card.
+  File created: src/entities/user/ui/user-card/user-card.tsx.
+  File created: src/entities/user/ui/user-card/index.ts.
+  File updated: src/entities/user/ui/index.ts.
+

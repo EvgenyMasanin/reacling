@@ -3,9 +3,13 @@ import { logger } from '@utils/loggers'
 
 import { missingArgumentError } from './errors'
 
-export const handleFail = (message: string) => {
+export const handleFail = (messageOrCount: string | number) => {
   const command = cli.inputCommand
-  const missingCommandsCount = +message.match(/\d/)[0]
+  const missingCommandsCount =
+    typeof messageOrCount === 'string'
+      ? +messageOrCount.match(/\d/)[0]
+      : messageOrCount
+
   logger.pushErrorLog(missingArgumentError[command](missingCommandsCount))
 
   throw new Error()

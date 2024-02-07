@@ -14,6 +14,6 @@ export const createFile = (
 
     logger.pushSuccessLog(`File created: ${path.match(/src.*/)[0]}.`)
   } catch (error) {
-    logger.pushErrorLog(error)
+    // logger.pushErrorLog(error)
   }
 }

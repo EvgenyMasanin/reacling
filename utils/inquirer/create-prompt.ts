@@ -1,3 +1,5 @@
+import inquirer from 'inquirer'
+
 export async function createPrompt() {
-  return (await import('inquirer')).default.prompt
+  return inquirer.prompt
 }

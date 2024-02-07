@@ -6,13 +6,13 @@ export interface InputParameters {
 export type NameParameter = Pick<InputParameters, 'name'>
 
 export enum Parameter {
-  full = '<name> <componentName>',
+  full = '<name> [componentName]',
   name = '<name>'
 }
 
 export interface CommandConfig {
   command: FsdCommand | SimpleCommand
-  parameter?: Parameter
+  parameter?: Parameter | string
   alias?: FsdCommandAlias | SimpleCommandAlias
   describe?: string
   handler: (name: string, componentName?: string) => void
@@ -40,7 +40,8 @@ export enum FsdCommand {
   widget = 'w',
   entityUI = 'eu',
   featureUI = 'fu',
-  sharedUI = 'su'
+  sharedUI = 'su',
+  hook = 'h'
 }
 
 export enum FsdCommandAlias {
@@ -50,7 +51,8 @@ export enum FsdCommandAlias {
   widget = 'widget',
   entityUI = 'entity-ui',
   featureUI = 'feature-ui',
-  sharedUI = 'shared-ui'
+  sharedUI = 'shared-ui',
+  hook = 'hook'
 }
 
 export const availableSimpleCommands = [

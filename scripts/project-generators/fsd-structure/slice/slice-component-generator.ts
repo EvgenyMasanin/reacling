@@ -6,20 +6,38 @@ import {
   mkdirIfNotExist
 } from '@utils/file-system'
 import { logger } from '@utils/loggers'
+import { handleFail } from '@scripts/errors'
 import { Folder } from '@scripts/constants'
+import { isFoldersAndFileNames } from '@utils/strings/is-folders-and-file-names'
+import { getFoldersAndFileNames } from '@utils/strings/get-folders-and-file-names'
 
 import { getLayerPath } from './helpers'
+import { sliceGenerator } from './slice-generator'
 
 import type { Layer } from './types'
-
 export const sliceComponentGenerator = (
-  layer: Layer,
-  sliceName: string,
+  layerName: Layer,
+  sliceNameOrSliceAndFileNames: string,
   componentName: string
 ) => {
-  const layerPath = getLayerPath(layer, sliceName)
+  if (!componentName && isFoldersAndFileNames(sliceNameOrSliceAndFileNames)) {
+    const { sliceName, fileName } = getFoldersAndFileNames(
+      sliceNameOrSliceAndFileNames
+    )
+    if (!isDirExist(getLayerPath(layerName, sliceName))) {
+      sliceGenerator(layerName, sliceName)
+    }
+
+    return sliceComponentGenerator(layerName, sliceName, fileName)
+  }
+  if (!componentName) {
+    handleFail(1)
+    return
+  }
+
+  const layerPath = getLayerPath(layerName, sliceNameOrSliceAndFileNames)
   if (!isDirExist(layerPath)) {
-    logger.pushNotExistLog(sliceName, layer)
+    logger.pushNotExistLog(sliceNameOrSliceAndFileNames, layerName)
     return
   }
 
@@ -27,7 +45,7 @@ export const sliceComponentGenerator = (
   if (isDirExist(join(sliceUiPath, componentName))) {
     logger.pushAlreadyExistLog(
       componentName,
-      `component of ${sliceName} ${layer}`
+      `component of ${sliceNameOrSliceAndFileNames} ${layerName}`
     )
     return
   }

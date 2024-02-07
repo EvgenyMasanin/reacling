@@ -1,8 +1,8 @@
 import { sharedCommands } from 'testing/commands'
-import { type Command } from 'testing/commands/types'
+import { manageSrc } from 'testing/utils/manage-src'
 import { equalConsoleOutput } from 'testing/utils/equal-console-output'
 
-import { manageSrc } from 'testing/utils/manage-src'
+import type { Command } from 'testing/commands/types'
 describe('shared snapshots', () => {
   const equalConsoleInitOutput = (commands: Command) => {
     equalConsoleOutput('shared', commands)

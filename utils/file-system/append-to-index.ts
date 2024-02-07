@@ -13,6 +13,6 @@ export const appendToIndex = (path: string, fileName: string) => {
       `File updated: ${join(path, INDEX).match(/src.*/)[0]}.`
     )
   } catch (error) {
-    logger.pushErrorLog(error)
+    // logger.pushErrorLog(error)
   }
 }

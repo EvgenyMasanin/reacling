@@ -1,3 +1,3 @@
  Error: 
-  Missing arguments: "feature-name" "component-name"!
+  Missing arguments: "feature-name", "component-name"!
 

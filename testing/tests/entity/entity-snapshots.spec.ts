@@ -1,7 +1,8 @@
 import { entityCommands } from 'testing/commands'
-import { type Command } from 'testing/commands/types'
-import { equalConsoleOutput } from 'testing/utils/equal-console-output'
 import { manageSrc } from 'testing/utils/manage-src'
+import { equalConsoleOutput } from 'testing/utils/equal-console-output'
+
+import type { Command } from 'testing/commands/types'
 
 describe('entity snapshots', () => {
   const equalConsoleEntityOutput = (commands: Command) => {
@@ -36,5 +37,17 @@ describe('entity snapshots', () => {
 
   it('entity is not exist', () => {
     equalConsoleEntityOutput(entityCommands[6])
+  })
+
+  it('new component shortcut', () => {
+    equalConsoleEntityOutput(entityCommands[7])
+  })
+
+  it('component already exist shortcut', () => {
+    equalConsoleEntityOutput(entityCommands[8])
+  })
+
+  it('missing component name shortcut', () => {
+    equalConsoleEntityOutput(entityCommands[9])
   })
 })

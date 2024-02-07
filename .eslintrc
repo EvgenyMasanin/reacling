@@ -4,6 +4,7 @@
         "es2021": true
     },
     "extends": "standard-with-typescript",
+    "exclude":["jest.config.js"],
     "ignorePatterns": ["src", "main"],
     "overrides": [
         {
@@ -25,6 +26,7 @@
     "rules": {
         "no-unused-vars":"warn",
         "@typescript-eslint/no-unused-vars":"warn",
+        "no-useless-escape":"off",
         "space-before-function-paren": "off",
         "@typescript-eslint/space-before-function-paren": "off",
         "@typescript-eslint/prefer-nullish-coalescing": "off",

@@ -1,0 +1,3 @@
+ Error: 
+  user-card component of user entitie is already exist!
+

@@ -25,15 +25,8 @@ export const sliceGenerator = (layer: Layer, sliceName: string) => {
 
   mkdirIfNotExist(layerFolderPath, sliceName)
 
-  const {
-    withApi,
-    withAssets,
-    withConfig,
-    withTypes,
-    withUi,
-    withLib,
-    withModel
-  } = configService.getSliceConfig(layer)
+  const { withApi, withAssets, withConfig, withUi, withLib, withModel } =
+    configService.getSliceConfig(layer)
 
   if (withUi) createUi(layerPath)
 
@@ -46,8 +39,6 @@ export const sliceGenerator = (layer: Layer, sliceName: string) => {
   if (withAssets) mkdirIfNotExist(layerPath, Folder.assets)
 
   if (withConfig) mkdirIfNotExist(layerPath, Folder.config)
-
-  if (withTypes) mkdirIfNotExist(layerPath, Folder.types)
 
   return true
 }

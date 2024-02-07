@@ -7,6 +7,11 @@ const config: Config = {
   },
   rootDir: './',
   modulePaths: ['<rootDir>'],
+  moduleNameMapper: {
+    '^@scripts/(.*)': '<rootDir>/scripts/$1',
+    '^@utils/(.*)': '<rootDir>/utils/$1',
+    '^@services/(.*)': '<rootDir>/services/$1'
+  },
   moduleDirectories: ['node_modules', 'scripts']
 }
 

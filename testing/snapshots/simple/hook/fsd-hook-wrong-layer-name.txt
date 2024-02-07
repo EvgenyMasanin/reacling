@@ -1,0 +1,4 @@
+ Error: 
+  Fsd methodology doesn't include "components" layer.
+  Use one of the followings: entity, feature, widget, page!
+

@@ -9,7 +9,7 @@ import { equalConsoleOutput } from 'testing/utils/equal-console-output'
 
 import type { Command } from 'testing/commands/types'
 describe('hook snapshots', () => {
-  const equalConsoleInitOutput = (commands: Command) => {
+  const equalConsoleHookOutput = (commands: Command) => {
     equalConsoleOutput(join('simple', 'hook'), commands)
   }
 
@@ -25,14 +25,14 @@ describe('hook snapshots', () => {
   })
 
   it('new hook', () => {
-    equalConsoleInitOutput(hookCommands[0])
+    equalConsoleHookOutput(hookCommands[0])
   })
 
   it('hook already exist', () => {
-    equalConsoleInitOutput(hookCommands[1])
+    equalConsoleHookOutput(hookCommands[1])
   })
 
   it('missing hook name', () => {
-    equalConsoleInitOutput(hookCommands[2])
+    equalConsoleHookOutput(hookCommands[2])
   })
 })

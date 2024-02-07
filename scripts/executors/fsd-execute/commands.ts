@@ -1,20 +1,18 @@
 import {
   entityComponentGenerator,
-  entityGenerator
-} from '@scripts/project-generators/fsd-structure/entity'
-import {
+  entityGenerator,
   featureComponentGenerator,
-  featureGenerator
-} from '@scripts/project-generators/fsd-structure/feature'
-import { initProject } from '@scripts/project-generators/fsd-structure/init-project'
-import { pageGenerator } from '@scripts/project-generators/fsd-structure/page-generator'
-import { widgetGenerator } from '@scripts/project-generators/fsd-structure/widget-generator'
-import { sharedComponentGenerator } from '@scripts/project-generators/fsd-structure/shared-component-generator'
+  featureGenerator,
+  hookGenerator,
+  initProject,
+  pageGenerator,
+  sharedComponentGenerator,
+  widgetGenerator
+} from '@scripts/project-generators/fsd-structure'
 
 import { FsdCommand, FsdCommandAlias, Parameter } from '../types'
 
 import type { CommandConfig } from '../types'
-
 const addEntityConfig: CommandConfig = {
   command: FsdCommand.entity,
   parameter: Parameter.name,
@@ -65,6 +63,15 @@ const addSharedUIConfig: CommandConfig = {
   handler: sharedComponentGenerator
 }
 
+const addHookConfig: CommandConfig = {
+  command: FsdCommand.hook,
+  parameter: '<hookName> <slicePath>',
+  alias: FsdCommandAlias.hook,
+  describe:
+    'add new hook for slice provided by path. For example "entities/user"',
+  handler: hookGenerator
+}
+
 const initConfig: CommandConfig = {
   command: FsdCommand.init,
   describe: 'Generate initial structure of project.',
@@ -79,5 +86,6 @@ export const commands: CommandConfig[] = [
   addPageConfig,
   addWidgetConfig,
   addSharedUIConfig,
+  addHookConfig,
   initConfig
 ] as const

@@ -26,5 +26,17 @@ export const entityCommands = [
   {
     command: 'eu usr avatar',
     snapshotFileName: 'entity-is-not-exist'
+  },
+  {
+    command: 'eu user/user-card',
+    snapshotFileName: 'new-component-shortcut'
+  },
+  {
+    command: 'eu user/user-card',
+    snapshotFileName: 'component-already-exist-shortcut'
+  },
+  {
+    command: 'eu user/',
+    snapshotFileName: 'missing-component-name-shortcut'
   }
 ] as const

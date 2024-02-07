@@ -45,6 +45,24 @@ export enum SegmentFolder {
   helpers = 'helpers'
 }
 
+export const layerDictionarySingular = {
+  app: 'app',
+  entities: 'entity',
+  features: 'feature',
+  widgets: 'widget',
+  pages: 'page',
+  shared: 'shared'
+}
+
+export const layerDictionary = {
+  app: 'app',
+  entity: 'entities',
+  feature: 'features',
+  widget: 'widgets',
+  page: 'pages',
+  shared: 'shared'
+}
+
 export const layersFolders = Object.values(LayerFolder)
 export const segmentsFolders = Object.values(SegmentFolder)
 

@@ -1,6 +1,7 @@
 import boxen from 'boxen'
 import { Status } from '@scripts/constants'
 import { padding } from '@scripts/constants/index'
+import { MISSING_ARGUMENT } from '@scripts/errors/errors'
 import { toSingular } from '@utils/strings/to-singular'
 
 import chalk from 'chalk'
@@ -10,15 +11,12 @@ import { capitalizeFirst } from '../strings'
 import { pathTransform } from '../strings/path-transform'
 
 import type { MethodologyEnum } from '@services/config/types'
-
 const isSuccess = (status: Status) => status === Status.success
 
 class Logger {
   readonly #successLogs: string[] = []
   readonly #errorLogs: string[] = []
   readonly #commonLogs: string[] = []
-
-  log(status: Status, log: string) {}
 
   pushLog(status: Status, log: string) {
     const transformedLog = pathTransform(log)
@@ -32,11 +30,17 @@ class Logger {
   }
 
   pushErrorLog(log: string) {
-    this.pushLog(Status.error, pathTransform(log))
+    this.pushLog(Status.error, log)
   }
 
   pushSuccessLog(log: string) {
-    this.pushLog(Status.success, pathTransform(log))
+    this.pushLog(Status.success, log)
+  }
+
+  pushMissingArguments(...args: string[]) {
+    const isMany = args.length > 1
+    const message = `${MISSING_ARGUMENT}${isMany ? 's' : ''}: ${args.join(', ')}`
+    this.pushErrorLog(message)
   }
 
   pushAlreadyExistLog(name: string, message: string = '') {
