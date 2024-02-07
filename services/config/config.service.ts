@@ -23,7 +23,11 @@ export class ConfigService {
   }
 
   #readConfig(path: string) {
-    return JSON.parse(readFileSync(path, 'utf8')) as ReaclingConfig
+    let config: ReaclingConfig = null
+    try {
+      config = JSON.parse(readFileSync(path, 'utf8')) as ReaclingConfig
+    } catch {}
+    return config
   }
 
   get userConfig() {

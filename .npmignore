@@ -9,6 +9,7 @@
 /assets
 /testing
 /utils
+/services
 /.cache
 /.parcel-cache
 /.vscode
